@@ -1,0 +1,144 @@
+---
+globs: *.tsx,*.css
+---
+
+# Tailwind CSS & Styling Conventions
+
+## Design System Colors
+
+### Brand Colors (from [tailwind.config.ts](mdc:tailwind.config.ts))
+```css
+/* Primary Brand */
+primary: hsl(355 76% 36%) /* #a21622 - Deep red */
+primary-foreground: hsl(348 45% 98%) /* #fcf7f8 - Light text */
+
+/* Secondary Brand */
+secondary: hsl(210 100% 50%) /* #0085FF - Bright blue */
+secondary-foreground: hsl(348 45% 98%) /* #fcf7f8 - Light text */
+
+/* Background System */
+background: hsl(0 0% 3.9%) /* #0A0A0A - Very dark */
+foreground: hsl(348 45% 98%) /* #fcf7f8 - Light text */
+card: hsl(0 0% 12.2%) /* #1F1F1F - Dark card background */
+border: hsl(0 0% 16.5%) /* #2A2A2A - Border color */
+
+/* Accent Colors */
+amber-400: /* Used for CTA buttons and highlights */
+```
+
+## Component Styling Patterns
+
+### className Utility Usage
+Always use the `cn()` utility from [src/lib/utils.ts](mdc:src/lib/utils.ts) for conditional classes:
+
+```typescript
+import { cn } from "@/lib/utils";
+
+// Good
+className={cn(
+  "base-classes",
+  "responsive-classes sm:text-lg md:text-xl",
+  conditionalClass && "conditional-styles",
+  className // Allow prop overrides
+)}
+
+// Avoid
+className={`base-classes ${condition ? "active" : ""} ${className}`}
+```
+
+### Responsive Design Patterns
+```typescript
+// Mobile-first approach with breakpoint prefixes
+className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl"
+
+// Flex layouts with responsive direction
+className="flex flex-col sm:flex-row"
+
+// Spacing with responsive values
+className="px-6 sm:px-8 md:px-12"
+
+// Grid with responsive columns
+className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3"
+```
+
+### Animation Classes
+Use Tailwind's built-in animations and custom ones from config:
+
+```typescript
+// Standard animations
+className="transition-all duration-300 hover:scale-105"
+className="animate-pulse animate-bounce"
+
+// Custom aurora animation (defined in tailwind.config.ts)
+className="animate-aurora"
+
+// Transform utilities for interactions
+className="transform hover:translate-x-1"
+```
+
+## Layout and Spacing
+
+### Container Patterns
+```typescript
+// Full-width sections
+className="w-full min-h-screen"
+
+// Centered content containers
+className="max-w-4xl mx-auto px-6"
+
+// Full viewport sections
+className="relative flex items-center justify-center w-full min-h-screen"
+```
+
+### Positioning and Z-Index
+```typescript
+// Video backgrounds
+className="absolute inset-0 z-0 w-full h-full object-cover"
+
+// Overlays
+className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/60 to-transparent z-0"
+
+// Content over backgrounds
+className="relative z-10"
+```
+
+## Button Styling Patterns
+
+### Primary CTA Button
+```typescript
+className="flex items-center justify-center w-full px-8 py-4 text-base font-semibold text-black transition-transform duration-300 transform bg-amber-400 rounded-md shadow-lg sm:w-auto hover:bg-amber-300 hover:scale-105"
+```
+
+### Secondary Button
+```typescript
+className="flex items-center justify-center w-full px-8 py-4 text-base font-semibold text-white transition-all duration-300 transform bg-transparent border-2 border-white rounded-md sm:w-auto hover:bg-white hover:text-black group"
+```
+
+### Magic Button Pattern (Gradient Border)
+Use the pattern from [src/components/ui/MagicButton.tsx](mdc:src/components/ui/MagicButton.tsx):
+```typescript
+// Outer gradient container
+className="relative inline-flex h-12 overflow-hidden rounded-full p-[1px] bg-gradient-to-r from-primary via-secondary to-primary bg-[size:400%_100%]"
+
+// Inner content
+className="flex h-full w-full items-center justify-center rounded-full px-6 font-medium bg-card text-foreground transition-all duration-300 hover:bg-opacity-80"
+```
+
+## Typography Scale
+```typescript
+// Headings
+className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl"
+className="text-lg tracking-wide md:text-xl"
+
+// Font weights
+className="font-light font-normal font-medium font-semibold font-bold"
+
+// Text colors with semantic meaning
+className="text-foreground text-gray-200 text-amber-400"
+```
+
+## Dark Mode Support
+The design system is built for dark mode by default:
+- Use semantic color tokens (foreground, background, etc.)
+- Avoid hardcoded colors like `text-white` except for specific design needs
+- Test components in both light and dark modes

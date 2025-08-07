@@ -1,0 +1,262 @@
+---
+alwaysApply: true
+---
+
+# File Naming & Organization Conventions
+
+## Directory Structure Standards
+
+### Root Level Organization
+```
+rolet-mix/
+├── src/                 # Source code
+├── public/              # Static assets
+├── .cursor/             # Cursor IDE rules and settings
+├── components.json      # shadcn/ui configuration
+├── next.config.ts       # Next.js configuration
+├── tailwind.config.ts   # Tailwind CSS configuration
+├── package.json         # Dependencies and scripts
+└── tsconfig.json        # TypeScript configuration
+```
+
+### Source Code Organization (`src/`)
+```
+src/
+├── app/                 # Next.js App Router pages
+│   ├── layout.tsx       # Root layout
+│   ├── page.tsx         # Homepage
+│   ├── globals.css      # Global styles
+│   └── favicon.ico      # Favicon
+├── components/          # React components
+│   ├── ui/              # Reusable UI primitives
+│   ├── layout/          # Layout components
+│   ├── sections/        # Page sections
+│   └── [feature]/       # Feature-specific components
+└── lib/                 # Utilities and libraries
+    └── utils.ts         # Utility functions
+```
+
+### Public Assets Organization (`public/`)
+```
+public/
+├── images/              # Static images (logos, icons)
+├── videos/              # Video files
+├── animations/          # Animation files (Lottie, etc.)
+├── logo-light.svg       # Brand assets at root level
+└── *.svg                # Other shared SVG icons
+```
+
+## File Naming Conventions
+
+### Component Files
+- **Format**: PascalCase with `.tsx` extension
+- **Examples**: 
+  - `HeroSection.tsx`
+  - `MagicButton.tsx` 
+  - `FullscreenMenu.tsx`
+  - `TextGenerateEffect.tsx`
+
+### Page Files (App Router)
+- **Format**: lowercase with `.tsx` extension
+- **Examples**:
+  - `page.tsx` (homepage)
+  - `layout.tsx` (layout)
+  - `loading.tsx` (loading UI)
+  - `error.tsx` (error UI)
+  - `not-found.tsx` (404 page)
+
+### Configuration Files
+- **Format**: kebab-case with appropriate extension
+- **Examples**:
+  - `next.config.ts`
+  - `tailwind.config.ts`
+  - `components.json`
+  - `eslint.config.mjs`
+  - `postcss.config.mjs`
+
+### Utility and Library Files
+- **Format**: camelCase with `.ts` extension
+- **Examples**:
+  - `utils.ts`
+  - `constants.ts`
+  - `helpers.ts`
+  - `api.ts`
+
+### Asset Files
+- **Images**: kebab-case with descriptive names
+  - `logo-light.svg`
+  - `hero-background.jpg`
+  - `product-showcase.png`
+- **Videos**: kebab-case with context in parentheses
+  - `hero-background (light).mp4`
+  - `product-demo (mobile).mp4`
+
+## Component Organization Patterns
+
+### UI Components (`src/components/ui/`)
+Single-purpose, reusable components:
+```
+ui/
+├── AuroraBackground.tsx     # Visual effect component
+├── LogoGenerateEffect.tsx   # Animation component
+├── MagicButton.tsx          # Interactive button
+├── MenuTrigger.tsx          # Menu control
+└── TextGenerateEffect.tsx   # Text animation
+```
+
+### Layout Components (`src/components/layout/`)
+Structural and navigation components:
+```
+layout/
+├── Navbar.tsx              # Main navigation
+├── FullscreenMenu.tsx      # Mobile/overlay menu
+├── Footer.tsx              # Site footer
+└── Sidebar.tsx             # Side navigation
+```
+
+### Section Components (`src/components/sections/`)
+Page-specific content sections:
+```
+sections/
+├── HeroSection.tsx         # Homepage hero
+├── AboutSection.tsx        # About content
+├── ServicesSection.tsx     # Services showcase
+├── PortfolioSection.tsx    # Work examples
+└── ContactSection.tsx      # Contact form
+```
+
+### Feature-Specific Components
+Group related components by feature:
+```
+components/
+├── auth/
+│   ├── LoginForm.tsx
+│   ├── SignupForm.tsx
+│   └── PasswordReset.tsx
+├── products/
+│   ├── ProductCard.tsx
+│   ├── ProductGrid.tsx
+│   └── ProductFilter.tsx
+└── admin/
+    ├── Dashboard.tsx
+    ├── UserManagement.tsx
+    └── Analytics.tsx
+```
+
+## Import Path Conventions
+
+### Alias Configuration (from [components.json](mdc:components.json))
+```typescript
+"aliases": {
+  "components": "@/components",
+  "utils": "@/lib/utils", 
+  "ui": "@/components/ui",
+  "lib": "@/lib",
+  "hooks": "@/hooks"
+}
+```
+
+### Import Examples
+```typescript
+// Components
+import HeroSection from "@/components/sections/HeroSection";
+import MagicButton from "@/components/ui/MagicButton";
+import Navbar from "@/components/layout/Navbar";
+
+// Utilities
+import { cn } from "@/lib/utils";
+
+// Hooks (when created)
+import { useLocalStorage } from "@/hooks/useLocalStorage";
+```
+
+## Special File Conventions
+
+### Next.js App Router Special Files
+- `layout.tsx` - Defines UI shared across routes
+- `page.tsx` - Creates route segments
+- `loading.tsx` - Loading UI for segments
+- `error.tsx` - Error UI for segments
+- `not-found.tsx` - 404 UI for segments
+- `route.ts` - API route handlers
+
+### Component Export Patterns
+```typescript
+// Default export for main component
+const HeroSection = () => {
+  return <section>Content</section>;
+};
+
+export default HeroSection;
+
+// Named exports for utilities or multiple components
+export { Button, ButtonGroup } from "./Button";
+export const utils = { helper1, helper2 };
+```
+
+## Code Organization Within Files
+
+### Component File Structure
+```typescript
+"use client"; // Client directive if needed
+
+// 1. External imports
+import React, { useState, useRef } from "react";
+import { motion } from "framer-motion";
+import { FiArrowRight } from "react-icons/fi";
+
+// 2. Internal imports
+import { cn } from "@/lib/utils";
+import MagicButton from "@/components/ui/MagicButton";
+
+// 3. Types and interfaces
+interface ComponentProps {
+  title: string;
+  className?: string;
+}
+
+// 4. Constants and variants (outside component)
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: { opacity: 1 }
+};
+
+// 5. Main component
+const Component = ({ title, className }: ComponentProps) => {
+  // Hooks
+  const [state, setState] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
+  
+  // Event handlers
+  const handleClick = () => {
+    setState(!state);
+  };
+  
+  // Render
+  return (
+    <div className={cn("base-styles", className)}>
+      {title}
+    </div>
+  );
+};
+
+// 6. Default export
+export default Component;
+```
+
+## Asset Organization Guidelines
+
+### Image Optimization
+- Use WebP format for photos when possible
+- Use SVG for icons and simple graphics
+- Organize by context: `images/logos/`, `images/products/`, etc.
+
+### Video Organization
+- Keep videos in `public/videos/` 
+- Use descriptive names with context
+- Consider multiple formats for compatibility
+
+### Icon Management
+- Prefer SVG icons in `public/` for static icons
+- Use Lucide React for interactive icons
+- Use React Icons for brand/social icons

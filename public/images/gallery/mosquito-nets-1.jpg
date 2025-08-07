@@ -1,0 +1,8 @@
+<!-- Gallery placeholder - replace with actual image -->
+<svg width="400" height="300" xmlns="http://www.w3.org/2000/svg">
+  <rect width="400" height="300" fill="#2a2a2a"/>
+  <rect x="30" y="30" width="340" height="240" fill="#1f1f1f" stroke="#a21622" stroke-width="2"/>
+  <text x="200" y="140" font-family="Arial" font-size="14" fill="#fcf7f8" text-anchor="middle">Moskitiery</text>
+  <text x="200" y="160" font-family="Arial" font-size="12" fill="#0085FF" text-anchor="middle">Okienne</text>
+  <text x="200" y="180" font-family="Arial" font-size="10" fill="#fcf7f8" text-anchor="middle">Gallery Image 1</text>
+</svg>

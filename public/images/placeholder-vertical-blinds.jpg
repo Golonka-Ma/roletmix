@@ -1,0 +1,7 @@
+<!-- Temporary placeholder - replace with actual image -->
+<svg width="400" height="300" xmlns="http://www.w3.org/2000/svg">
+  <rect width="400" height="300" fill="#1f1f1f"/>
+  <rect x="50" y="50" width="300" height="200" fill="#2a2a2a" stroke="#a21622" stroke-width="2"/>
+  <text x="200" y="160" font-family="Arial" font-size="16" fill="#fcf7f8" text-anchor="middle">Żaluzje Pionowe</text>
+  <text x="200" y="180" font-family="Arial" font-size="12" fill="#fcf7f8" text-anchor="middle">Placeholder Image</text>
+</svg>

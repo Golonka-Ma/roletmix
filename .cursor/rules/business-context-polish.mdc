@@ -1,0 +1,160 @@
+---
+description: Business context and Polish localization guidelines for the roller shutter company website
+---
+
+# Business Context & Polish Localization
+
+## Business Domain: Rolet Mix
+
+### Company Profile
+Rolet Mix is a Polish company specializing in innovative roller shutter systems and window coverings. The company focuses on:
+- **Design & Manufacturing**: Custom roller shutters and blind systems
+- **Installation Services**: Professional mounting and setup
+- **Quality & Precision**: High-end solutions for residential and commercial spaces
+- **Aesthetic Focus**: Combining functionality with modern design
+
+### Target Market
+- **Primary**: Polish residential customers looking for window covering solutions
+- **Secondary**: Commercial and office spaces
+- **Geographic**: Poland and potentially neighboring EU countries
+
+## Content Guidelines
+
+### Polish Language Standards
+- Use formal Polish (avoiding slang or overly casual language)
+- Apply proper Polish typography rules:
+  - Use Polish quotation marks: „example"
+  - Proper spacing and punctuation
+  - Correct use of Polish diacritics (ą, ć, ę, ł, ń, ó, ś, ź, ż)
+
+### Brand Voice & Tone
+- **Professional**: Emphasizing expertise and reliability
+- **Modern**: Contemporary language reflecting innovation
+- **Trustworthy**: Building confidence in quality and service
+- **Accessible**: Clear communication without technical jargon
+
+### Content Structure Patterns
+
+#### Hero Section Messaging (from [HeroSection.tsx](mdc:src/components/sections/HeroSection.tsx))
+```typescript
+// Main headline pattern
+"Innowacyjne Systemy Osłonowe."
+"Precyzja i Styl dla Twojej Przestrzeni."
+
+// Value proposition pattern
+"Zaufaj wieloletniemu doświadczeniu. Projektujemy, produkujemy i montujemy rozwiązania,
+które definiują komfort, bezpieczeństwo i estetykę Twojego domu i biura."
+
+// Call-to-action patterns
+"Uzyskaj Bezpłatną Wycenę"        // Primary CTA
+"Zobacz Nasze Realizacje"          // Secondary CTA
+```
+
+#### Key Messaging Themes
+1. **Experience & Expertise**: "wieloletnie doświadczenie"
+2. **Complete Service**: "projektujemy, produkujemy i montujemy"
+3. **Quality Benefits**: "komfort, bezpieczeństwo i estetyka"
+4. **Innovation**: "innowacyjne systemy"
+5. **Precision**: "precyzja i styl"
+
+## SEO and Content Strategy
+
+### Polish Keywords Focus
+- Primary: "rolety", "żaluzje", "systemy osłonowe"
+- Secondary: "montaż rolet", "rolety na wymiar", "żaluzje biurowe"
+- Long-tail: "nowoczesne rolety do domu", "profesjonalny montaż żaluzji"
+
+### Content Sections to Develop
+1. **O Nas** (About) - Company history and expertise
+2. **Usługi** (Services) - Design, manufacturing, installation
+3. **Realizacje** (Portfolio) - Project showcases
+4. **Produkty** (Products) - Roller shutter types and options
+5. **Kontakt** (Contact) - Contact form and company info
+6. **Wycena** (Quote) - Request quote functionality
+
+### Local Business Elements
+- **Contact Information**: Polish phone numbers, addresses
+- **Service Areas**: Specify covered regions in Poland
+- **Business Hours**: Polish business hour conventions
+- **Legal Requirements**: GDPR compliance, Polish business registration
+
+## Visual Content Guidelines
+
+### Image Content Strategy
+- **Professional Photography**: High-quality installations
+- **Before/After Shots**: Transformation showcases
+- **Product Close-ups**: Detail and quality focus
+- **Lifestyle Context**: Products in real home/office settings
+
+### Video Content (Hero Background)
+Current video: `hero-background (light).mp4`
+- Professional product demonstration
+- Smooth, premium feeling
+- Matches brand quality positioning
+
+## Technical Considerations
+
+### Polish Character Support
+Ensure all fonts and systems support Polish diacritics:
+```css
+/* Current font from layout.tsx */
+font-family: "Figtree", sans-serif;
+/* Supports: ą, ć, ę, ł, ń, ó, ś, ź, ż */
+```
+
+### Responsive Polish Text
+- Polish words tend to be longer than English
+- Consider text wrapping and responsive design
+- Test CTAs and buttons with Polish text lengths
+
+### Form Validation Messages
+```typescript
+// Error messages in Polish
+const validationMessages = {
+  required: "To pole jest wymagane",
+  email: "Wprowadź prawidłowy adres email",
+  phone: "Wprowadź prawidłowy numer telefonu",
+  name: "Wprowadź imię i nazwisko"
+};
+```
+
+## Navigation and UX Patterns
+
+### Typical Polish Website Navigation
+```typescript
+const navigation = [
+  { label: "Strona główna", href: "/" },
+  { label: "O nas", href: "/o-nas" },
+  { label: "Usługi", href: "/uslugi" },
+  { label: "Produkty", href: "/produkty" },
+  { label: "Realizacje", href: "/realizacje" },
+  { label: "Kontakt", href: "/kontakt" },
+  { label: "Wycena", href: "/wycena", highlighted: true }
+];
+```
+
+### Contact and Quote Forms
+- **Personal Data**: Name, phone, email (GDPR required)
+- **Project Details**: Property type, measurements, preferences
+- **Contact Preferences**: Phone vs email, preferred time
+- **Privacy Policy**: Required GDPR compliance checkbox
+
+## Compliance and Legal
+
+### GDPR Requirements
+- Clear privacy policy link
+- Consent checkboxes for data processing
+- Cookie policy notification
+- Data retention and deletion policies
+
+### Polish Business Standards
+- Company registration details in footer
+- Tax identification numbers (NIP)
+- Professional certifications display
+- Quality guarantees and warranties
+
+### Accessibility (Polish Standards)
+- Screen reader compatibility with Polish text
+- Keyboard navigation support
+- Alt text in Polish for images
+- High contrast support for text readability

@@ -1,0 +1,103 @@
+---
+globs: *.ts,*.tsx
+---
+
+# TypeScript & React Conventions
+
+## TypeScript Guidelines
+
+### Type Definitions
+- Use `interface` for object shapes and component props
+- Use `type` for unions, intersections, and computed types
+- Always define prop interfaces for React components
+- Use proper typing for refs: `useRef<HTMLVideoElement>(null)`
+
+### Import Organization
+```typescript
+// 1. React and Next.js imports
+import React, { useRef, useState } from "react";
+import { Metadata } from "next";
+import Link from "next/link";
+
+// 2. Third-party libraries
+import { motion } from "framer-motion";
+import { FiArrowRight } from "react-icons/fi";
+
+// 3. Internal utilities and components
+import { cn } from "@/lib/utils";
+import MagicButton from "@/components/ui/MagicButton";
+```
+
+## React Component Patterns
+
+### Component Structure
+```typescript
+interface ComponentProps {
+  children: ReactNode;
+  className?: string;
+  // Required props first, optional props last
+}
+
+const Component = ({ children, className }: ComponentProps) => {
+  // 1. Hooks
+  const [state, setState] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
+  
+  // 2. Event handlers
+  const handleClick = () => {
+    // Implementation
+  };
+  
+  // 3. Render
+  return (
+    <div className={cn("base-classes", className)}>
+      {children}
+    </div>
+  );
+};
+
+export default Component;
+```
+
+### Client Components
+- Always use `"use client"` directive at the top for interactive components
+- Place client directive on the first line of the file
+
+### Component Naming
+- Use PascalCase for component names and file names
+- Export as default for page and section components
+- Use named exports for utility components
+
+## React Hooks Usage
+
+### State Management
+- Use `useState` for simple local state
+- Use `useRef` for DOM references and mutable values
+- Prefer functional updates for state that depends on previous state
+
+### Event Handlers
+- Name handlers with `handle` prefix: `handleClick`, `handleEnded`
+- Use arrow functions for inline handlers in JSX
+- Extract complex handlers to separate functions
+
+## Props and TypeScript
+
+### Component Props Interface
+```typescript
+interface ButtonProps {
+  children: ReactNode;
+  href: string;
+  className?: string;
+  variant?: "primary" | "secondary";
+  onClick?: () => void;
+}
+```
+
+### Default Props Pattern
+- Use default parameters instead of `defaultProps`
+- Make optional props clear in the interface with `?`
+
+## Performance Considerations
+- Use `React.memo()` for expensive components that receive stable props
+- Prefer `useCallback` and `useMemo` only when necessary for performance
+- Avoid creating objects/functions in render unless needed

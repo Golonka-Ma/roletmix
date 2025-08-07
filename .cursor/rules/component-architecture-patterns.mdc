@@ -1,0 +1,256 @@
+---
+globs: *.tsx
+---
+
+# Component Architecture & Patterns
+
+## Component Organization Structure
+
+### Directory Structure
+```
+src/components/
+├── ui/              # Reusable UI primitives (buttons, inputs, effects)
+├── layout/          # Layout-specific components (navbar, footer, menu)
+├── sections/        # Page section components (hero, features, contact)
+└── [feature]/       # Feature-specific component groups
+```
+
+### Component Types
+
+#### 1. UI Components (`src/components/ui/`)
+Reusable, primitive components with consistent APIs:
+
+```typescript
+// Example: MagicButton.tsx
+interface MagicButtonProps {
+  children: ReactNode;
+  href: string;
+  className?: string;
+}
+
+export const MagicButton = ({ children, href, className }: MagicButtonProps) => {
+  // Implementation with consistent styling and behavior
+};
+
+export default MagicButton;
+```
+
+#### 2. Layout Components (`src/components/layout/`)
+Structure and navigation components:
+
+```typescript
+// Example: Navbar.tsx - Simple state management
+const Navbar = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  
+  return (
+    <>
+      <MenuTrigger isOpen={isOpen} setIsOpen={setIsOpen} />
+      <FullscreenMenu isOpen={isOpen} />
+    </>
+  );
+};
+```
+
+#### 3. Section Components (`src/components/sections/`)
+Page-specific sections with complex functionality:
+
+```typescript
+// Example: HeroSection.tsx - Rich interactive component
+const HeroSection = () => {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  
+  const handleEnded = () => {
+    setTimeout(() => {
+      videoRef.current?.play();
+    }, 10000);
+  };
+  
+  return (
+    <section className="relative flex items-center justify-center w-full min-h-screen">
+      {/* Complex layout with video, overlays, and animations */}
+    </section>
+  );
+};
+```
+
+## Component Composition Patterns
+
+### Container-Content Pattern
+```typescript
+// Outer container for layout and positioning
+<section className="relative w-full min-h-screen">
+  {/* Background elements */}
+  <video className="absolute inset-0 z-0" />
+  <div className="absolute inset-0 bg-gradient-overlay z-0" />
+  
+  {/* Main content */}
+  <div className="relative z-10 flex flex-col items-center">
+    <Content />
+  </div>
+  
+  {/* UI elements */}
+  <div className="absolute z-10 bottom-10">
+    <ScrollIndicator />
+  </div>
+</section>
+```
+
+### State Lifting Pattern
+Keep state as close to where it's needed, lift when sharing between siblings:
+
+```typescript
+// Parent component manages shared state
+const Navbar = () => {
+  const [isOpen, setIsOpen] = useState(false); // Shared between trigger and menu
+  
+  return (
+    <>
+      <MenuTrigger isOpen={isOpen} setIsOpen={setIsOpen} />
+      <FullscreenMenu isOpen={isOpen} />
+    </>
+  );
+};
+```
+
+### Ref Forwarding for DOM Access
+```typescript
+interface ComponentProps {
+  className?: string;
+}
+
+const Component = React.forwardRef<HTMLDivElement, ComponentProps>(
+  ({ className }, ref) => {
+    return (
+      <div ref={ref} className={cn("base-styles", className)}>
+        Content
+      </div>
+    );
+  }
+);
+
+Component.displayName = "Component";
+```
+
+## Animation Integration Patterns
+
+### Framer Motion Variants Pattern
+Define animation variants outside component for reusability:
+
+```typescript
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.2,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { y: 20, opacity: 0 },
+  visible: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      duration: 0.6,
+    },
+  },
+};
+
+// Usage in component
+<motion.div
+  variants={containerVariants}
+  initial="hidden"
+  animate="visible"
+>
+  <motion.h1 variants={itemVariants}>Title</motion.h1>
+  <motion.p variants={itemVariants}>Content</motion.p>
+</motion.div>
+```
+
+### Hover State Management
+```typescript
+const [hovered, setHovered] = useState(false);
+
+<motion.div
+  onMouseEnter={() => setHovered(true)}
+  onMouseLeave={() => setHovered(false)}
+  animate={{
+    backgroundPosition: hovered ? ["0% 0%", "100% 0%"] : "0% 0%",
+  }}
+>
+```
+
+## Props and API Design
+
+### Consistent Prop Patterns
+```typescript
+interface ComponentProps {
+  // Content
+  children?: ReactNode;
+  title?: string;
+  
+  // Behavior
+  onClick?: () => void;
+  href?: string;
+  
+  // Styling
+  className?: string;
+  variant?: "primary" | "secondary";
+  size?: "sm" | "md" | "lg";
+  
+  // State
+  isActive?: boolean;
+  isLoading?: boolean;
+}
+```
+
+### Polymorphic Component Pattern
+```typescript
+interface ButtonProps<T extends ElementType = "button"> {
+  as?: T;
+  children: ReactNode;
+}
+
+const Button = <T extends ElementType = "button">({
+  as,
+  children,
+  ...props
+}: ButtonProps<T> & ComponentPropsWithoutRef<T>) => {
+  const Component = as || "button";
+  return <Component {...props}>{children}</Component>;
+};
+
+// Usage
+<Button>Default button</Button>
+<Button as={Link} href="/about">Link button</Button>
+```
+
+## Error Handling Patterns
+
+### Safe Component Rendering
+```typescript
+const Component = ({ data }: { data?: DataType }) => {
+  if (!data) {
+    return <div>Loading...</div>;
+  }
+  
+  return (
+    <div>
+      {data.items?.map((item) => (
+        <Item key={item.id} {...item} />
+      ))}
+    </div>
+  );
+};
+```
+
+### Error Boundaries for Sections
+```typescript
+// Create error boundaries for major sections
+<ErrorBoundary fallback={<SectionErrorFallback />}>
+  <HeroSection />
+</ErrorBoundary>
+```
