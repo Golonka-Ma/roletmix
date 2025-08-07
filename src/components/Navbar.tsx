@@ -111,7 +111,7 @@ const Navbar = () => {
               transition={{ delay: 0.8, duration: 0.3 }}
             >
               <Link
-                href="/wycena"
+                href="#contact"
                 className="relative bg-amber-400 text-black px-3 lg:px-4 xl:px-5 py-2 lg:py-2.5 xl:py-3 rounded-full text-xs lg:text-sm xl:text-base font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-amber-400/25 overflow-hidden group tracking-wide whitespace-nowrap"
               >
                 <span className="relative z-10">Bezpłatna wycena</span>

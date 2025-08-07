@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Link from "next/link";
 import { FiShield, FiMail, FiPhone } from "react-icons/fi";
 import LegalNavbar from "@/components/layout/LegalNavbar";
 

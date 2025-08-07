@@ -202,9 +202,25 @@ const AboutSection = () => {
               {/* Overlay content */}
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className="text-center text-white">
-                  <div className="text-6xl mb-4">🏢</div>
-                  <div className="text-2xl font-bold mb-2">Rolet Mix</div>
-                  <div className="text-gray-300">Profesjonalne Systemy Osłonowe</div>
+                  <motion.div 
+                    className="mb-6"
+                    animate={{
+                      scale: [1, 1.1, 1],
+                      opacity: [0.8, 1, 0.8],
+                    }}
+                    transition={{
+                      duration: 3,
+                      repeat: Infinity,
+                      ease: "easeInOut",
+                    }}
+                  >
+                    <img 
+                      src="/logo_biale.svg" 
+                      alt="Rolet Mix Logo" 
+                      className="w-64 h-64 md:w-48 md:h-48 lg:w-96 lg:h-96 filter drop-shadow-lg"
+                    />
+                  </motion.div>
+
                 </div>
               </div>
 

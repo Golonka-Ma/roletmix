@@ -27,7 +27,7 @@ export const LogoGenerateEffect = ({
         duration: duration ? duration : 1,
       }
     );
-  }, [scope.current, animate, duration, filter]);
+  }, [animate, duration, filter]);
 
   return (
     <div className={cn("font-bold", className)}>

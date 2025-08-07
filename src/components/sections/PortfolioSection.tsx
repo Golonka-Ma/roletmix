@@ -302,7 +302,7 @@ const PortfolioSection = () => {
 
                 {/* Testimonial Text */}
                 <blockquote className="text-gray-700 leading-relaxed mb-3 line-clamp-4">
-                  "{testimonial.text}"
+                  &ldquo;{testimonial.text}&rdquo;
                 </blockquote>
                 
                 {/* Footer */}
