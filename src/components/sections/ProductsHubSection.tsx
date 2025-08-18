@@ -11,7 +11,7 @@ const productCategories = [
     id: "rolety-tekstylne",
     title: "Rolety Tekstylne",
     shortDescription: "Kompletna gama rolet tekstylnych: dzień/noc, materiałowe, zaciemniające i wolnowiszące.",
-    imageSrc: "/images/placeholder-textile-blinds.jpg",
+    imageSrc: "/images/textile-blinds.jpg",
     imageAlt: "Eleganckie rolety tekstylne w nowoczesnym wnętrzu",
     
     // Rozszerzone dane dla modala
@@ -27,7 +27,7 @@ const productCategories = [
       "Tkaniny filtry UV chroniące wnętrze"
     ],
     gallery: [
-      "/images/placeholder-textile-blinds.jpg",
+      "/images/textile-blinds.jpg",
       "/images/gallery/textile-blinds-1.jpg",
       "/images/gallery/textile-blinds-2.jpg",
       "/images/gallery/textile-blinds-3.jpg"
@@ -36,145 +36,10 @@ const productCategories = [
     warranty: "5 lat gwarancji na wszystkie mechanizmy"
   },
   {
-    id: "rolety-dachowe",
-    title: "Rolety Dachowe", 
-    shortDescription: "Specjalistyczne rozwiązania do okien dachowych zapewniające kontrolę światła i temperatury.",
-    imageSrc: "/images/placeholder-roof-blinds.jpg",
-    imageAlt: "Rolety dachowe w nowoczesnym poddaszu",
-    
-    detailedDescription: "Rolety dachowe to wyspecjalizowane systemy osłonowe projektowane specjalnie do okien dachowych. Doskonale radzą sobie z wyzwaniami związanymi z nietypowymi kątami nasłonecznienia i zapewniają komfort przez cały rok.",
-    features: [
-      "Idealnie dopasowane do okien dachowych wszystkich marek",
-      "Zaawansowana kontrola temperatury w poddaszu",
-      "Materiały odporne na promieniowanie UV",
-      "Systemy napinające zapobiegające opadaniu",
-      "Łatwy montaż bez uszkadzania ramy okna",
-      "Dostępność w wersji manualnej i elektrycznej",
-      "Specjalne prowadnice boczne",
-      "Materiały nieprzemakalnie i paroprzepuszczalne"
-    ],
-    gallery: [
-      "/images/placeholder-roof-blinds.jpg",
-      "/images/gallery/roof-blinds-1.jpg", 
-      "/images/gallery/roof-blinds-2.jpg",
-      "/images/gallery/roof-blinds-3.jpg"
-    ],
-    applications: ["Poddasza mieszkalne", "Biura na poddaszu", "Pracownie artystyczne", "Pokoje dziecięce"],
-    warranty: "7 lat gwarancji - specjalnie dla warunków dachowych"
-  },
-  {
-    id: "plisy",
-    title: "Plisy",
-    shortDescription: "Wszechstronne plisy okienne i dachowe - elegancja łącząca funkcjonalność z designem.",
-    imageSrc: "/images/placeholder-pleated-blinds.jpg", 
-    imageAlt: "Stylowe plisy w eleganckim wnętrzu",
-    
-    detailedDescription: "Plisy to nowoczesne systemy osłonowe charakteryzujące się harmonijkowym układem tkaniny. Dzięki unikatowej konstrukcji można je montować zarówno w oknach standardowych, jak i nietypowych kształtach.",
-    features: [
-      "Plisy okienne - klasyczne rozwiązania do każdego typu okna",
-      "Plisy dachowe - specjalne systemy do okien skośnych", 
-      "Plisy dzień/noc - podwójna funkcjonalność w jednym produkcie",
-      "Montaż bez wiercenia - systemy wpinane",
-      "Bogata paleta kolorów i faktur",
-      "Możliwość regulacji od góry i od dołu",
-      "Tkaniny antybakteryjne i antyalergiczne",
-      "Łatwe czyszczenie i konserwacja"
-    ],
-    gallery: [
-      "/images/placeholder-pleated-blinds.jpg",
-      "/images/gallery/pleated-blinds-1.jpg",
-      "/images/gallery/pleated-blinds-2.jpg", 
-      "/images/gallery/pleated-blinds-3.jpg"
-    ],
-    applications: ["Nowoczesne wnętrza", "Biura", "Restauracje", "Hotele", "Domy prywatne"],
-    warranty: "5 lat gwarancji z możliwością przedłużenia"
-  },
-  {
-    id: "verticale",
-    title: "Żaluzje Pionowe (Verticale)",
-    shortDescription: "Klasyczne żaluzje pionowe idealne do dużych przeszkleń w biurach i domach.",
-    imageSrc: "/images/placeholder-vertical-blinds.jpg",
-    imageAlt: "Żaluzje pionowe w przestronnym wnętrzu",
-    
-    detailedDescription: "Verticale to ponadczasowe rozwiązanie idealne do dużych powierzchni szklanych. Pionowe lamele zapewniają doskonałą kontrolę światła i prywatności, jednocześnie nadając wnętrzom elegancki, profesjonalny charakter.",
-    features: [
-      "Lamele o szerokości 89mm i 127mm",
-      "Materiały: PVC, tkanina, aluminium",
-      "Systemy jednokierunkowe i dwukierunkowe",
-      "Mechanizm sznurkowy lub łańcuszkowy",
-      "Możliwość automatyzacji elektrycznej",
-      "Lamele perforowane dla lepszej wentylacji",
-      "Łatwe czyszczenie i wymiana pojedynczych elementów",
-      "Dostępność w wersjach biurowych i domowych"
-    ],
-    gallery: [
-      "/images/placeholder-vertical-blinds.jpg",
-      "/images/gallery/vertical-blinds-1.jpg",
-      "/images/gallery/vertical-blinds-2.jpg",
-      "/images/gallery/vertical-blinds-3.jpg"
-    ],
-    applications: ["Biura", "Sale konferencyjne", "Salony", "Tarasy przeszklone", "Centra handlowe"],
-    warranty: "5 lat gwarancji na mechanizmy, 2 lata na tkaniny"
-  },
-  {
-    id: "moskitiery",
-    title: "Moskitiery",
-    shortDescription: "Pełna gama moskitier chroniąca przed owadami bez kompromisów w designie.",
-    imageSrc: "/images/placeholder-mosquito-nets.jpg",
-    imageAlt: "Moskitiery w różnych konfiguracjach",
-    
-    detailedDescription: "Nasze moskitiery to skuteczna ochrona przed owadami połączona z dbałością o estetykę. Oferujemy kompletną gamę rozwiązań dopasowanych do każdego typu okna i drzwi.",
-    features: [
-      "Moskitiery okienne ramkowe i rolowane",
-      "Moskitiery drzwiowe przesuwne i wahadłowe", 
-      "Moskitiery przesuwne do dużych przeszkleń",
-      "Moskitiery dachowe do okien skośnych",
-      "Moskitiery nietypowe (trapezowe, łukowe)",
-      "Siatki z włókna szklanego i poliestrowe",
-      "Ramy aluminiowe w kolorach RAL",
-      "Niewidzialne systemy magnetyczne"
-    ],
-    gallery: [
-      "/images/placeholder-mosquito-nets.jpg",
-      "/images/gallery/mosquito-nets-1.jpg",
-      "/images/gallery/mosquito-nets-2.jpg",
-      "/images/gallery/mosquito-nets-3.jpg"
-    ],
-    applications: ["Domy jednorodzinne", "Apartamenty", "Restauracje", "Hotele", "Obiekty rekreacyjne"],
-    warranty: "3 lata gwarancji na konstrukcję, 1 rok na siatkę"
-  },
-  {
-    id: "zaluzje-poziome",
-    title: "Żaluzje Poziome", 
-    shortDescription: "Drewniane i aluminiowe żaluzje poziome - ponadczasowa elegancja w każdym wnętrzu.",
-    imageSrc: "/images/placeholder-horizontal-blinds.jpg",
-    imageAlt: "Drewniane żaluzje poziome w stylowym wnętrzu",
-    
-    detailedDescription: "Żaluzje poziome to klasyka, która nigdy nie wychodzi z mody. Oferujemy zarówno naturalne drewniane lamele, jak i praktyczne rozwiązania aluminiowe, które idealnie komponują się z każdym stylem wnętrza.",
-    features: [
-      "Żaluzje drewniane z naturalnego drewna lipowego",
-      "Żaluzje aluminiowe w szerokiej gamie kolorów",
-      "Lamele 25mm, 35mm i 50mm",
-      "Impregnacja przeciwwilgociowa",
-      "Mechanizmy sterowania sznurkowe i łańcuszkowe",
-      "Możliwość montażu w kasecie",
-      "Systemy automatyczne z pilotem",
-      "Lakiery i bejce w kolorach RAL"
-    ],
-    gallery: [
-      "/images/placeholder-horizontal-blinds.jpg",
-      "/images/gallery/horizontal-blinds-1.jpg",
-      "/images/gallery/horizontal-blinds-2.jpg",
-      "/images/gallery/horizontal-blinds-3.jpg"
-    ],
-    applications: ["Salony", "Gabinety", "Restauracje", "Hotele", "Biura reprezentacyjne"],
-    warranty: "7 lat gwarancji na drewno, 5 lat na aluminium"
-  },
-  {
     id: "rolety-zewnetrzne",
     title: "Rolety Zewnętrzne",
     shortDescription: "Antywłamaniowe rolety zewnętrzne i bramy garażowe z pełną automatyzacją.",
-    imageSrc: "/images/placeholder-external-shutters.jpg", 
+    imageSrc: "/images/external-shutters.jpg", 
     imageAlt: "Nowoczesne rolety zewnętrzne na budynku",
     
     detailedDescription: "Rolety zewnętrzne to najwyższy poziom ochrony, komfortu i oszczędności energetycznej. Nasze systemy łączą funkcję antywłamaniową z doskonałą izolacyjnością termiczną i akustyczną.",
@@ -189,40 +54,121 @@ const productCategories = [
       "Izolacyjność termiczna do 1.8 W/m²K"
     ],
     gallery: [
-      "/images/placeholder-external-shutters.jpg",
+      "/images/external-shutters.jpg",
       "/images/gallery/external-shutters-1.jpg",
       "/images/gallery/external-shutters-2.jpg", 
       "/images/gallery/external-shutters-3.jpg"
     ],
     applications: ["Domy jednorodzinne", "Apartamentowce", "Biura", "Sklepy", "Garaże"],
-    warranty: "10 lat gwarancji na konstrukcję, 3 lata na automatykę"
+    warranty: "5 lat gwarancji na konstrukcję, 2 lata na automatykę"
   },
   {
-    id: "przeroba-serwis",
-    title: "Przeróbka i Serwis",
-    shortDescription: "Profesjonalna przeróbka istniejących rolet i kompleksowe usługi serwisowe.",
-    imageSrc: "/images/placeholder-service.jpg",
-    imageAlt: "Serwis i przeróbka rolet przez specjalistów", 
+    id: "rolety-dachowe",
+    title: "Rolety Dachowe", 
+    shortDescription: "Specjalistyczne rozwiązania do okien dachowych zapewniające kontrolę światła i temperatury.",
+    imageSrc: "/images/roof-blinds.jpg",
+    imageAlt: "Rolety dachowe w nowoczesnym poddaszu",
     
-    detailedDescription: "Specjalizujemy się w przeróbkach i serwisie wszystkich typów systemów osłonowych. Nasze doświadczenie pozwala nam przywrócić funkcjonalność nawet najbardziej zaniedbanych instalacji.",
+    detailedDescription: "Rolety dachowe to wyspecjalizowane systemy osłonowe projektowane specjalnie do okien dachowych. Doskonale radzą sobie z wyzwaniami związanymi z nietypowymi kątami nasłonecznienia i zapewniają komfort przez cały rok.",
     features: [
-      "Wymiana materiałów rolet tekstylnych",
-      "Montaż silników do rolet zewnętrznych",
-      "Naprawa mechanizmów sterujących", 
-      "Wymiana prowadnic i kaseton",
-      "Serwis automatyki i systemów sterowania",
-      "Czyszczenie i konserwacja żaluzji",
-      "Modernizacja starych instalacji",
-      "Usługi gwarancyjne i pogwarancyjne"
+      "Idealnie dopasowane do okien dachowych wszystkich marek",
+      "Zaawansowana kontrola temperatury w poddaszu",
+      "Materiały odporne na promieniowanie UV",
+      "Systemy napinające zapobiegające opadaniu",
+      "Łatwy montaż bez uszkadzania ramy okna",
+      "Dostępność w wersji manualnej i elektrycznej",
+      "Specjalne prowadnice boczne",
+      "Materiały nieprzemakalnie i paroprzepuszczalne"
     ],
     gallery: [
-      "/images/placeholder-service.jpg",
-      "/images/gallery/service-1.jpg",
-      "/images/gallery/service-2.jpg",
-      "/images/gallery/service-3.jpg"
+      "/images/roof-blinds.jpg",
+      "/images/gallery/roof-blinds-1.jpg", 
+      "/images/gallery/roof-blinds-2.jpg",
+      "/images/gallery/roof-blinds-3.jpg"
     ],
-    applications: ["Mieszkania", "Biura", "Obiekty komercyjne", "Budynki publiczne", "Hotele"],
-    warranty: "2 lata gwarancji na wszystkie usługi serwisowe"
+    applications: ["Poddasza mieszkalne", "Biura na poddaszu", "Pracownie artystyczne", "Pokoje dziecięce"],
+    warranty: "5 lat gwarancji - specjalnie dla warunków dachowych"
+  },
+  {
+    id: "zaluzje-poziome",
+    title: "Żaluzje Poziome", 
+    shortDescription: "Drewniane i aluminiowe żaluzje poziome - ponadczasowa elegancja w każdym wnętrzu.",
+    imageSrc: "/images/horizontal-blinds.jpg",
+    imageAlt: "Drewniane żaluzje poziome w stylowym wnętrzu",
+    
+    detailedDescription: "Żaluzje poziome to klasyka, która nigdy nie wychodzi z mody. Oferujemy zarówno naturalne drewniane lamele, jak i praktyczne rozwiązania aluminiowe, które idealnie komponują się z każdym stylem wnętrza.",
+    features: [
+      "Żaluzje drewniane z naturalnego drewna lipowego",
+      "Żaluzje aluminiowe w szerokiej gamie kolorów",
+      "Lamele 25mm, 35mm i 50mm",
+      "Impregnacja przeciwwilgociowa",
+      "Mechanizmy sterowania sznurkowe i łańcuszkowe",
+      "Możliwość montażu w kasecie",
+      "Systemy automatyczne z pilotem",
+      "Lakiery i bejce w kolorach RAL"
+    ],
+    gallery: [
+      "/images/horizontal-blinds.jpg",
+      "/images/gallery/horizontal-blinds-1.jpg",
+      "/images/gallery/horizontal-blinds-2.jpg",
+      "/images/gallery/horizontal-blinds-3.jpg"
+    ],
+    applications: ["Salony", "Gabinety", "Restauracje", "Hotele", "Biura reprezentacyjne"],
+    warranty: "7 lat gwarancji na drewno, 5 lat na aluminium"
+  },
+  {
+    id: "verticale",
+    title: "Żaluzje Pionowe (Verticale)",
+    shortDescription: "Klasyczne żaluzje pionowe idealne do dużych przeszkleń w biurach i domach.",
+    imageSrc: "/images/vertical-blinds.jpg",
+    imageAlt: "Żaluzje pionowe w przestronnym wnętrzu",
+    
+    detailedDescription: "Verticale to ponadczasowe rozwiązanie idealne do dużych powierzchni szklanych. Pionowe lamele zapewniają doskonałą kontrolę światła i prywatności, jednocześnie nadając wnętrzom elegancki, profesjonalny charakter.",
+    features: [
+      "Lamele o szerokości 89mm i 127mm",
+      "Materiały: PVC, tkanina, aluminium",
+      "Systemy jednokierunkowe i dwukierunkowe",
+      "Mechanizm sznurkowy lub łańcuszkowy",
+      "Możliwość automatyzacji elektrycznej",
+      "Lamele perforowane dla lepszej wentylacji",
+      "Łatwe czyszczenie i wymiana pojedynczych elementów",
+      "Dostępność w wersjach biurowych i domowych"
+    ],
+    gallery: [
+      "/images/vertical-blinds.jpg",
+      "/images/gallery/vertical-blinds-1.jpg",
+      "/images/gallery/vertical-blinds-2.jpg",
+      "/images/gallery/vertical-blinds-3.jpg"
+    ],
+    applications: ["Biura", "Sale konferencyjne", "Salony", "Tarasy przeszklone", "Centra handlowe"],
+    warranty: "5 lat gwarancji na mechanizmy, 2 lata na tkaniny"
+  },
+  {
+    id: "moskitiery",
+    title: "Moskitiery",
+    shortDescription: "Pełna gama moskitier chroniąca przed owadami bez kompromisów w designie.",
+    imageSrc: "/images/mosquito-nets.jpg",
+    imageAlt: "Moskitiery w różnych konfiguracjach",
+    
+    detailedDescription: "Nasze moskitiery to skuteczna ochrona przed owadami połączona z dbałością o estetykę. Oferujemy kompletną gamę rozwiązań dopasowanych do każdego typu okna i drzwi.",
+    features: [
+      "Moskitiery okienne ramkowe i rolowane",
+      "Moskitiery drzwiowe przesuwne i wahadłowe", 
+      "Moskitiery przesuwne do dużych przeszkleń",
+      "Moskitiery dachowe do okien skośnych",
+      "Moskitiery nietypowe (trapezowe, łukowe)",
+      "Siatki z włókna szklanego i poliestrowe",
+      "Ramy aluminiowe w kolorach RAL",
+      "Niewidzialne systemy magnetyczne"
+    ],
+    gallery: [
+      "/images/mosquito-nets.jpg",
+      "/images/gallery/mosquito-nets-1.jpg",
+      "/images/gallery/mosquito-nets-2.jpg",
+      "/images/gallery/mosquito-nets-3.jpg"
+    ],
+    applications: ["Domy jednorodzinne", "Apartamenty", "Restauracje", "Hotele", "Obiekty rekreacyjne"],
+    warranty: "3 lata gwarancji na konstrukcję, 1 rok na siatkę"
   }
 ];
 

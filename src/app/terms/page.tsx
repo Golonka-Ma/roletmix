@@ -104,8 +104,8 @@ export default function TermsPage() {
                 </p>
                 <p className="mt-4">
                   <strong>Godziny pracy:</strong><br/>
-                  Poniedziałek - Piątek: 8:00 - 20:00<br/>
-                  Sobota: 8:00 - 16:00<br/>
+                  Poniedziałek - Piątek: 8:00 - 17:00<br/>
+                  Sobota: zamknięte<br/>
                   Niedziela: zamknięte
                 </p>
               </div>

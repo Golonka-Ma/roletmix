@@ -48,7 +48,7 @@ const ProductCard = ({
         <div className="absolute inset-0 rounded-3xl bg-amber-400/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-sm"></div>
         
         {/* Enhanced Image container */}
-        <div className="relative aspect-[4/3] overflow-hidden rounded-t-3xl">
+        <div className="relative aspect-[4/5] overflow-hidden rounded-t-3xl">
           <Image
             src={imageSrc}
             alt={imageAlt}

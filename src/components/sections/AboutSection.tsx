@@ -3,6 +3,7 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { FiAward, FiUsers, FiHome, FiShield } from "react-icons/fi";
+import Image from "next/image";
 
 const aboutStats = [
   {
@@ -15,7 +16,7 @@ const aboutStats = [
     icon: FiUsers,
     value: "5000+",
     label: "Zadowolonych Klientów",
-    description: "W całej Polsce"
+    description: "Lokalnie i na terenie całej Polski"
   },
   {
     icon: FiHome,
@@ -171,19 +172,8 @@ const AboutSection = () => {
                 </p>
                 <p className="text-lg text-gray-300 leading-relaxed">
                   Dziś, po tysiącach zrealizowanych projektów, pozostajemy wierni 
-                  naszym wartościom: jakości, innowacji i zadowoleniu klienta.
+                  naszym wartościom:  <span className="text-amber-400 font-semibold"> jakości, innowacji i zadowoleniu klienta. </span>
                 </p>
-              </div>
-
-              <div className="grid grid-cols-2 gap-6">
-                <div className="text-center p-6 bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10">
-                  <div className="text-3xl font-bold text-amber-400 mb-2">15+</div>
-                  <div className="text-sm text-gray-400">Lat Doświadczenia</div>
-                </div>
-                <div className="text-center p-6 bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10">
-                  <div className="text-3xl font-bold text-amber-400 mb-2">5000+</div>
-                  <div className="text-sm text-gray-400">Zadowolonych Klientów</div>
-                </div>
               </div>
             </div>
           </motion.div>
@@ -214,9 +204,11 @@ const AboutSection = () => {
                       ease: "easeInOut",
                     }}
                   >
-                    <img 
+                    <Image 
                       src="/logo_biale.svg" 
                       alt="Rolet Mix Logo" 
+                      width={384}
+                      height={384}
                       className="w-64 h-64 md:w-48 md:h-48 lg:w-96 lg:h-96 filter drop-shadow-lg"
                     />
                   </motion.div>
@@ -276,7 +268,8 @@ const AboutSection = () => {
             <p className="text-gray-300 text-lg mb-8">
               Dołącz do grona zadowolonych klientów i odkryj, jak możemy przekształcić Twoje wnętrze
             </p>
-            <motion.button
+            <motion.a
+              href="#products"
               className="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-amber-400 to-amber-500 text-black font-semibold rounded-full hover:from-amber-500 hover:to-amber-600 transition-all duration-300 shadow-lg hover:shadow-amber-400/25"
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.98 }}
@@ -289,7 +282,7 @@ const AboutSection = () => {
               >
                 →
               </motion.div>
-            </motion.button>
+            </motion.a>
           </div>
         </motion.div>
       </div>

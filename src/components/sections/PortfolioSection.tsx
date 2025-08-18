@@ -1,8 +1,10 @@
 "use client";
 
 import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
-import { FiStar, FiExternalLink } from "react-icons/fi";
+import { useRef, useState } from "react";
+import { FiStar, FiExternalLink, FiChevronLeft, FiChevronRight } from "react-icons/fi";
+import { FaGoogle, FaFacebook } from "react-icons/fa";
+import Image from "next/image";
 
 const portfolioItems = [
   {
@@ -10,101 +12,101 @@ const portfolioItems = [
     title: "Nowoczesne Rolety Tekstylne",
     category: "Rolety Tekstylne",
     image: "/images/gallery/textile-blinds-1.jpg",
-    size: "large" // 2x2
+    size: "large", // 2x2
+    hasRealImage: true
   },
   {
     id: 2,
     title: "Eleganckie Żaluzje Pionowe",
     category: "Verticale",
     image: "/images/gallery/vertical-blinds-1.jpg",
-    size: "medium" // 1x2
+    size: "large", // 2x2
+    hasRealImage: true
   },
   {
     id: 3,
-    title: "Rolety Dachowe Premium",
-    category: "Rolety Dachowe",
-    image: "/images/gallery/roof-blinds-1.jpg",
-    size: "medium" // 1x2
+    title: "Profesjonalny serwis",
+    category: "Serwis",
+    image: "/images/gallery/service-x.jpg",
+    size: "tall", // 2x1
+    hasRealImage: true
   },
   {
     id: 4,
-    title: "Stylowe Plisy Okienne",
-    category: "Plisy",
-    image: "/images/gallery/pleated-blinds-1.jpg",
-    size: "small" // 1x1
-  },
+    title: "Rolety materiałowe naścienne",
+    category: "Plusy",
+    image: "/images/gallery/plus-blinders.jpg",
+    size: "large", // 2x2
+    hasRealImage: true
+  },  
   {
     id: 5,
-    title: "Moskitiery Profesjonalne",
-    category: "Moskitiery",
-    image: "/images/gallery/mosquito-nets-1.jpg",
-    size: "small" // 1x1
+    title: "Transport i Szybka Dostawa",
+    category: "Dostawa",
+    image: "/images/gallery/delivery-truck.jpg",
+    size: "tall", // 2x1
+    hasRealImage: true
   },
   {
     id: 6,
     title: "Rolety Zewnętrzne Antywłamaniowe",
     category: "Rolety Zewnętrzne",
     image: "/images/gallery/external-shutters-1.jpg",
-    size: "large" // 2x2
+    size: "large", // 2x2
+    hasRealImage: true
   },
   {
     id: 7,
-    title: "Żaluzje Poziome Drewniane",
-    category: "Żaluzje Poziome",
-    image: "/images/gallery/horizontal-blinds-1.jpg",
-    size: "medium" // 1x2
-  },
-  {
-    id: 8,
-    title: "Kompleksowy Serwis",
-    category: "Serwis",
-    image: "/images/gallery/service-1.jpg",
-    size: "small" // 1x1
+    title: "Rolety Dachowe Premium",
+    category: "Rolety Dachowe",
+    image: "/images/gallery/roof-blinds-1.jpg",
+    size: "large", // 2x2
+    hasRealImage: true
   }
 ];
 
 const testimonials = [
   {
     id: 1,
-    name: "Anna Kowalska",
-    location: "Warszawa, Mokotów",
+    name: "Paulina Majcher",
+    location: "Tarnów",
     rating: 5,
-    text: "Profesjonalna obsługa od początku do końca. Rolety tekstylne wyglądają rewelacyjnie i idealnie pasują do naszego wnętrza. Polecam!",
+    text: "Bardzo miła obsługa od samego początku. Rolety prezentują się świetnie i pasują do reszty wystroju. Jestem zadowolona i polecam.",
     avatar: "/images/placeholder-avatar-1.jpg",
     platform: "Google",
     date: "2 tygodnie temu"
   },
   {
     id: 2,
-    name: "Marek Nowak",
+    name: "Łukasz Bartoszek",
     location: "Kraków, Krowodrza",
     rating: 5,
-    text: "Świetna jakość wykonania i terminowość. Rolety dachowe rozwiązują problem z nasłonecznieniem na poddaszu. Dziękuję za profesjonalizm!",
+    text: "Dobre wykonanie i montaż na czas. Rolety dachowe naprawdę pomagają przy mocnym słońcu na poddaszu. Dzięki!",
     avatar: "/images/placeholder-avatar-2.jpg",
     platform: "Facebook",
     date: "1 miesiąc temu"
   },
   {
     id: 3,
-    name: "Katarzyna Wiśniewska",
-    location: "Poznań, Jeżyce",
+    name: "Karolina Cieślik",
+    location: "Radłów",
     rating: 5,
-    text: "Kompleksowa obsługa - pomiar, montaż i serwis. Moskitiery są praktyczne i estetyczne. Na pewno skorzystam ponownie!",
+    text: "Pełen zakres usługi – od pomiaru po montaż. Moskitiery są solidne i wyglądają ładnie. Na pewno wrócę, jeśli będę potrzebować czegoś jeszcze.",
     avatar: "/images/placeholder-avatar-3.jpg",
     platform: "Google",
     date: "3 tygodnie temu"
   },
   {
     id: 4,
-    name: "Piotr Zieliński",
-    location: "Wrocław, Krzyki",
+    name: "Adrian Warchał",
+    location: "Gorzyce",
     rating: 5,
-    text: "Rolety zewnętrzne to najlepsza inwestycja w naszym domu. Oszczędność energii i bezpieczeństwo. Polecam wszystkim!",
+    text: "Rolety zewnętrzne to był strzał w dziesiątkę – w domu jest chłodniej i czuję się bezpieczniej. Polecam znajomym.",
     avatar: "/images/placeholder-avatar-4.jpg",
     platform: "Facebook",
     date: "2 miesiące temu"
   }
-];
+];  
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -136,19 +138,17 @@ const itemVariants = {
 const PortfolioSection = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const [currentSlide, setCurrentSlide] = useState(0);
 
-  const getGridClass = (size: string) => {
-    switch (size) {
-      case "large":
-        return "col-span-2 row-span-2";
-      case "medium":
-        return "col-span-1 row-span-2";
-      case "small":
-        return "col-span-1 row-span-1";
-      default:
-        return "col-span-1 row-span-1";
-    }
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % testimonials.length);
   };
+
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev - 1 + testimonials.length) % testimonials.length);
+  };
+
+
 
   return (
     <section 
@@ -222,9 +222,10 @@ const PortfolioSection = () => {
           </p>
         </div>
 
-        {/* Portfolio Bento Grid */}
+        {/* Portfolio Bento Grid - Improved Layout */}
         <motion.div
-          className="grid grid-cols-2 md:grid-cols-4 gap-4 lg:gap-6 mb-24"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 lg:gap-6 mb-24"
+          style={{ gridAutoRows: 'minmax(200px, auto)' }}
           variants={containerVariants}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
@@ -233,26 +234,63 @@ const PortfolioSection = () => {
             <motion.div
               key={item.id}
               variants={itemVariants}
-              className={`group relative overflow-hidden rounded-3xl ${getGridClass(item.size)}`}
+                             className={`group relative overflow-hidden rounded-2xl lg:rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 ${
+                 item.size === "large" 
+                   ? "col-span-1 sm:col-span-2 row-span-1 sm:row-span-2" 
+                   : item.size === "medium" 
+                   ? "col-span-1 sm:col-span-2 row-span-1" 
+                   : item.size === "tall"
+                   ? "col-span-1 row-span-1 sm:row-span-2"
+                   : "col-span-1 row-span-1"
+               }`}
             >
-              <div className="relative w-full h-full min-h-[200px] md:min-h-[250px] lg:min-h-[300px]">
-                {/* Placeholder background */}
-                <div className="absolute inset-0 bg-gradient-to-br from-gray-200 via-gray-300 to-gray-400"></div>
+              <div className="relative w-full h-full">
+                                 {/* Background Image or SVG Placeholder */}
+                 {item.hasRealImage ? (
+                  <>
+                    <Image 
+                      src={item.image} 
+                      alt={item.title}
+                      fill
+                      className="object-cover"
+                    />
+                    {/* Always visible text overlay for real images */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent">
+                      <div className="absolute bottom-4 left-4 right-4 text-white">
+                        <div className="text-xs font-semibold text-amber-400 mb-2 uppercase tracking-wide">{item.category}</div>
+                        <h3 className="text-base lg:text-lg font-bold mb-2 leading-tight">{item.title}</h3>
+                      </div>
+                    </div>
+                  </>
+                 ) : (
+                   <div 
+                     className="w-full h-full"
+                     dangerouslySetInnerHTML={{
+                       __html: `
+                         <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" class="w-full h-full">
+                           <rect width="100%" height="100%" fill="#1f1f1f"/>
+                           <rect x="10%" y="10%" width="80%" height="80%" fill="#2a2a2a" stroke="#a21622" stroke-width="2"/>
+                           <text x="50%" y="45%" font-family="Arial, sans-serif" font-size="14" fill="#fcf7f8" text-anchor="middle" dominant-baseline="middle">${item.category}</text>
+                           <text x="50%" y="65%" font-family="Arial, sans-serif" font-size="12" fill="#0085FF" text-anchor="middle" dominant-baseline="middle">${item.title}</text>
+                         </svg>
+                       `
+                     }}
+                   />
+                 )}
                 
                 {/* Overlay content */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300">
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500">
                   <div className="absolute bottom-4 left-4 right-4 text-white">
-                    <div className="text-xs font-medium text-amber-400 mb-1">{item.category}</div>
-                    <h3 className="text-sm lg:text-base font-semibold mb-2">{item.title}</h3>
-                    <div className="flex items-center text-xs text-gray-300">
-                      <FiExternalLink className="w-3 h-3 mr-1" />
-                      Zobacz szczegóły
-                    </div>
+                    <div className="text-xs font-semibold text-amber-400 mb-2 uppercase tracking-wide">{item.category}</div>
+                    <h3 className="text-base lg:text-lg font-bold mb-2 leading-tight">{item.title}</h3>
                   </div>
                 </div>
 
-                {/* Hover effect */}
-                <div className="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                {/* Hover effect with primary color */}
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/30 to-secondary/30 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                
+                {/* Subtle border on hover */}
+                <div className="absolute inset-0 border-2 border-transparent group-hover:border-primary/50 rounded-2xl lg:rounded-3xl transition-all duration-500"></div>
               </div>
             </motion.div>
           ))}
@@ -274,44 +312,169 @@ const PortfolioSection = () => {
             </p>
           </div>
 
-          {/* Testimonials Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-6xl mx-auto">
+          {/* Desktop Grid - Hidden on mobile */}
+          <div className="hidden md:grid grid-cols-1 md:grid-cols-2 gap-6 max-w-6xl mx-auto">
             {testimonials.map((testimonial, index) => (
               <motion.div
                 key={testimonial.id}
                 initial={{ opacity: 0, y: 30 }}
                 animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="bg-white/80 backdrop-blur-sm rounded-2xl border border-white/60 p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+                className="relative bg-white/90 backdrop-blur-sm rounded-2xl border border-gray-200/50 p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 group"
               >
+                {/* Subtle background pattern */}
+                <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-primary/5 via-transparent to-secondary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                
                 {/* Header with Avatar and Info */}
-                <div className="flex items-center gap-4 mb-4">
-                  <div className="w-12 h-12 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-full flex items-center justify-center flex-shrink-0">
-                    <div className="text-lg">👤</div>
+                <div className="relative flex items-start gap-4 mb-4">
+                  <div className="w-14 h-14 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-full flex items-center justify-center flex-shrink-0 ring-2 ring-white/50">
+                    <div className="text-xl">👤</div>
                   </div>
                   <div className="flex-1 min-w-0">
-                    <h4 className="font-semibold text-gray-900 truncate">{testimonial.name}</h4>
-                    <p className="text-sm text-gray-600 truncate">{testimonial.location}</p>
-                  </div>
-                  <div className="flex items-center gap-1 flex-shrink-0">
-                    {[...Array(testimonial.rating)].map((_, i) => (
-                      <FiStar key={i} className="w-4 h-4 text-amber-400 fill-current" />
-                    ))}
+                    <div className="flex items-center gap-2 mb-1">
+                      <h4 className="font-semibold text-gray-900 text-base">{testimonial.name}</h4>
+                      <div className="flex items-center gap-1">
+                        {[...Array(testimonial.rating)].map((_, i) => (
+                          <FiStar key={i} className="w-4 h-4 text-amber-400 fill-current" />
+                        ))}
+                      </div>
+                    </div>
+                    <p className="text-sm text-gray-600 mb-2">{testimonial.location}</p>
+                    {/* Platform with logo */}
+                    <div className="flex items-center gap-2">
+                      {testimonial.platform === "Google" ? (
+                        <FaGoogle className="w-4 h-4 text-blue-500" />
+                      ) : (
+                        <FaFacebook className="w-4 h-4 text-blue-600" />
+                      )}
+                      <span className="text-sm font-medium text-gray-700">{testimonial.platform}</span>
+                      <span className="text-xs text-gray-500">•</span>
+                      <span className="text-xs text-gray-500">{testimonial.date}</span>
+                    </div>
                   </div>
                 </div>
 
                 {/* Testimonial Text */}
-                <blockquote className="text-gray-700 leading-relaxed mb-3 line-clamp-4">
-                  &ldquo;{testimonial.text}&rdquo;
+                <blockquote className="relative text-gray-700 leading-relaxed text-sm line-clamp-4 italic">
+                  <span className="text-primary text-2xl absolute -top-2 -left-1">&ldquo;</span>
+                  <span className="ml-4">{testimonial.text}</span>
+                  <span className="text-primary text-2xl">&rdquo;</span>
                 </blockquote>
                 
-                {/* Footer */}
-                <div className="flex items-center justify-between text-sm text-gray-500">
-                  <span>{testimonial.platform}</span>
-                  <span>{testimonial.date}</span>
-                </div>
+                {/* Bottom border accent */}
+                <div className="absolute bottom-0 left-6 right-6 h-1 bg-gradient-to-r from-primary/20 via-secondary/20 to-primary/20 rounded-full transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
               </motion.div>
             ))}
+          </div>
+
+          {/* Mobile Slider - Visible only on mobile */}
+          <div className="md:hidden relative max-w-sm mx-auto">
+            {/* Navigation Buttons */}
+            <div className="flex justify-between items-center mb-4">
+              <motion.button
+                onClick={prevSlide}
+                className="p-3 rounded-full bg-white/80 backdrop-blur-sm border border-gray-200/50 shadow-lg hover:shadow-xl transition-all duration-300 hover:bg-white"
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <FiChevronLeft className="w-5 h-5 text-gray-700" />
+              </motion.button>
+
+              <div className="flex gap-2">
+                {testimonials.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setCurrentSlide(index)}
+                    className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                      index === currentSlide 
+                        ? "bg-primary w-6" 
+                        : "bg-gray-300"
+                    }`}
+                  />
+                ))}
+              </div>
+
+              <motion.button
+                onClick={nextSlide}
+                className="p-3 rounded-full bg-white/80 backdrop-blur-sm border border-gray-200/50 shadow-lg hover:shadow-xl transition-all duration-300 hover:bg-white"
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <FiChevronRight className="w-5 h-5 text-gray-700" />
+              </motion.button>
+            </div>
+
+            {/* Slider Container */}
+            <div className="relative overflow-hidden rounded-2xl">
+              <motion.div
+                className="flex"
+                animate={{ x: -currentSlide * 100 + "%" }}
+                transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                drag="x"
+                dragConstraints={{ left: -(testimonials.length - 1) * 100, right: 0 }}
+                onDragEnd={(_, { offset }) => {
+                  if (offset.x > 100) {
+                    prevSlide();
+                  } else if (offset.x < -100) {
+                    nextSlide();
+                  }
+                }}
+              >
+                {testimonials.map((testimonial, index) => (
+                  <motion.div
+                    key={testimonial.id}
+                    className="w-full flex-shrink-0 px-2"
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.9 }}
+                    transition={{ duration: 0.6, delay: index * 0.1 }}
+                  >
+                    <div className="relative bg-white/90 backdrop-blur-sm rounded-2xl border border-gray-200/50 p-6 shadow-lg">
+                      {/* Subtle background pattern */}
+                      <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-primary/5 via-transparent to-secondary/5"></div>
+                      
+                      {/* Header with Avatar and Info */}
+                      <div className="relative flex items-start gap-4 mb-4">
+                        <div className="w-14 h-14 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-full flex items-center justify-center flex-shrink-0 ring-2 ring-white/50">
+                          <div className="text-xl">👤</div>
+                        </div>
+                        <div className="flex-1 min-w-0">
+                          <div className="flex items-center gap-2 mb-1">
+                            <h4 className="font-semibold text-gray-900 text-base">{testimonial.name}</h4>
+                            <div className="flex items-center gap-1">
+                              {[...Array(testimonial.rating)].map((_, i) => (
+                                <FiStar key={i} className="w-4 h-4 text-amber-400 fill-current" />
+                              ))}
+                            </div>
+                          </div>
+                          <p className="text-sm text-gray-600 mb-2">{testimonial.location}</p>
+                          {/* Platform with logo */}
+                          <div className="flex items-center gap-2">
+                            {testimonial.platform === "Google" ? (
+                              <FaGoogle className="w-4 h-4 text-blue-500" />
+                            ) : (
+                              <FaFacebook className="w-4 h-4 text-blue-600" />
+                            )}
+                            <span className="text-sm font-medium text-gray-700">{testimonial.platform}</span>
+                            <span className="text-xs text-gray-500">•</span>
+                            <span className="text-xs text-gray-500">{testimonial.date}</span>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Testimonial Text */}
+                      <blockquote className="relative text-gray-700 leading-relaxed text-sm italic">
+                        <span className="text-primary text-2xl absolute -top-2 -left-1">&ldquo;</span>
+                        <span className="ml-4">{testimonial.text}</span>
+                        <span className="text-primary text-2xl">&rdquo;</span>
+                      </blockquote>
+                      
+                      {/* Bottom border accent */}
+                      <div className="absolute bottom-0 left-6 right-6 h-1 bg-gradient-to-r from-primary/20 via-secondary/20 to-primary/20 rounded-full"></div>
+                    </div>
+                  </motion.div>
+                ))}
+              </motion.div>
+            </div>
           </div>
         </motion.div>
 

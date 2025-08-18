@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import { Figtree } from "next/font/google";
 import "./globals.css";
-import { StagewiseToolbar } from "@stagewise/toolbar-next";
-import { ReactPlugin } from "@stagewise-plugins/react";
 import { cn } from "@/lib/utils";
 
 import Footer from "@/components/layout/Footer";
@@ -37,7 +35,6 @@ export default function RootLayout({
   return (
     <html lang="pl" className={figtree.className}>
       <body className={cn("bg-background text-foreground")}>
-        <StagewiseToolbar config={{ plugins: [ReactPlugin] }} />
         {children}
         <Footer />
       </body>

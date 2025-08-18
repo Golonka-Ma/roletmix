@@ -129,21 +129,21 @@ const ServicesSection = () => {
             animate={isInView ? { scale: 1 } : { scale: 0.8 }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <span className="px-6 py-3 text-sm font-semibold tracking-wide text-secondary bg-secondary/10 backdrop-blur-sm rounded-full border border-secondary/30">
-              🚀 NASZE USŁUGI
+            <span className="px-6 py-3 text-sm font-semibold tracking-wide text-amber-400 bg-amber-400/10 backdrop-blur-sm rounded-full border border-amber-400/30">
+            🚀 NASZE USŁUGI
             </span>
           </motion.div>
           
           <h2 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tight mb-8 text-white">
             Kompleksowa
             <br />
-            <span className="text-secondary">Obsługa Klienta</span>
+            <span className="text-amber-400">Obsługa Klienta</span>
           </h2>
           
           <p className="text-xl md:text-2xl font-medium tracking-wide text-gray-300 max-w-4xl mx-auto leading-relaxed">
             Oferujemy pełen zakres usług - od bezpłatnego pomiaru po profesjonalny montaż. 
             Nasze{" "}
-            <span className="text-secondary font-semibold">doświadczenie to gwarancja jakości</span>.
+            <span className="text-amber-400 font-semibold">doświadczenie to gwarancja jakości</span>.
           </p>
         </div>
 
@@ -172,7 +172,7 @@ const ServicesSection = () => {
                   </div>
                   
                   {/* Title */}
-                  <h3 className="text-xl lg:text-2xl font-bold text-white mb-4 group-hover:text-secondary transition-colors duration-300">
+                  <h3 className="text-xl lg:text-2xl font-bold text-amber-400 mb-4 group-hover:text-amber-500 transition-colors duration-300">
                     {service.title}
                   </h3>
                   
@@ -207,7 +207,7 @@ const ServicesSection = () => {
           transition={{ duration: 0.8, delay: 1.0 }}
         >
           <div className="text-center mb-16">
-            <h3 className="text-3xl md:text-4xl font-bold text-white mb-4">
+            <h3 className="text-3xl md:text-4xl font-bold text-amber-400 mb-4">
               Jak Działamy?
             </h3>
             <p className="text-xl text-gray-300 max-w-2xl mx-auto">
@@ -237,7 +237,7 @@ const ServicesSection = () => {
 
                 </div>
                 
-                <h4 className="text-lg font-semibold text-white mb-2 group-hover:text-secondary transition-colors duration-300">
+                <h4 className="text-lg font-semibold text-amber-400 mb-2 group-hover:text-white transition-colors duration-300">
                   {item.title}
                 </h4>
                 <p className="text-gray-400 group-hover:text-gray-300 transition-colors duration-300">
@@ -259,8 +259,9 @@ const ServicesSection = () => {
             <p className="text-gray-300 text-lg mb-8">
               Gotowy na transformację swojego wnętrza? Skontaktuj się z nami już dziś!
             </p>
-            <motion.button
-              className="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-secondary to-secondary/80 text-black font-semibold rounded-full hover:from-secondary/90 hover:to-secondary transition-all duration-300 shadow-lg hover:shadow-secondary/25"
+            <motion.a
+              href="#contact"
+              className="inline-flex items-center justify-center px-8 py-4 bg-amber-400 text-black font-semibold rounded-full hover:from-secondary/90 hover:to-secondary transition-all duration-300 shadow-lg hover:shadow-secondary/25"
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.98 }}
             >
@@ -272,7 +273,7 @@ const ServicesSection = () => {
               >
                 →
               </motion.div>
-            </motion.button>
+            </motion.a>
           </div>
         </motion.div>
       </div>
