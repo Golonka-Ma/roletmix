@@ -328,22 +328,24 @@ const ProductsHubSection = () => {
             <p className="text-gray-600 text-lg mb-6">
               Potrzebujesz indywidualnej porady lub masz pytania dotyczące naszych produktów?
             </p>
-            <motion.div
-              className="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-amber-400/20 to-amber-500/20 backdrop-blur-sm border border-amber-400/30 rounded-full hover:from-amber-400/30 hover:to-amber-500/30 transition-all duration-300 cursor-pointer group"
-              whileHover={{ scale: 1.05, y: -2 }}
-              whileTap={{ scale: 0.98 }}
-            >
-              <span className="text-amber-700 font-semibold group-hover:text-amber-800 transition-colors">
-                Skontaktuj się z nami
-              </span>
+            <a href="#contact">
               <motion.div
-                className="ml-3 text-amber-600 group-hover:text-amber-700 transition-colors"
-                animate={{ x: [0, 4, 0] }}
-                transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                className="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-amber-400/20 to-amber-500/20 backdrop-blur-sm border border-amber-400/30 rounded-full hover:from-amber-400/30 hover:to-amber-500/30 transition-all duration-300 cursor-pointer group"
+                whileHover={{ scale: 1.05, y: -2 }}
+                whileTap={{ scale: 0.98 }}
               >
-                →
+                <span className="text-amber-700 font-semibold group-hover:text-amber-800 transition-colors">
+                  Skontaktuj się z nami
+                </span>
+                <motion.div
+                  className="ml-3 text-amber-600 group-hover:text-amber-700 transition-colors"
+                  animate={{ x: [0, 4, 0] }}
+                  transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                >
+                  →
+                </motion.div>
               </motion.div>
-            </motion.div>
+            </a>
           </div>
         </motion.div>
       </div>

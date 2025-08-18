@@ -490,22 +490,26 @@ const PortfolioSection = () => {
               Zainspiruj się naszymi realizacjami i dołącz do grona zadowolonych klientów
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <motion.button
+              <motion.a
+                href="#portfolio"
                 className="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-primary to-primary/80 text-white font-semibold rounded-full hover:from-primary/90 hover:to-primary transition-all duration-300 shadow-lg hover:shadow-primary/25"
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.98 }}
               >
                 <span>Zobacz Więcej Realizacji</span>
                 <FiExternalLink className="ml-3 w-5 h-5" />
-              </motion.button>
-              <motion.button
+              </motion.a>
+              <motion.a
+                href="https://www.google.com/search?sca_esv=b0a1351e93cb2bd4&sxsrf=AE3TifOhwaYxTBgDCKiij5nyyqnBuaCkoQ:1755535502654&si=AMgyJEtREmoPL4P1I5IDCfuA8gybfVI2d5Uj7QMwYCZHKDZ-E-Lacd7tfoANMeUBg83zdGLxLxBMbxxdCd6VgUpDVYgcG6GaPi-EpnH9qrF0oMRmGIRxuMZK_5oZzOz3KPqpPk2YXc8iTI3phIyk6qVA-A1yUO5s-A%3D%3D&q=Rolety+i+%C5%BBaluzje+Rolet+Mix+Reviews&sa=X&ved=2ahUKEwiO3Jqw55SPAxWRBNsEHQMNMIIQ0bkNegQISxAE&biw=1920&bih=911&dpr=1"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-amber-400 to-amber-500 text-black font-semibold rounded-full hover:from-amber-500 hover:to-amber-600 transition-all duration-300 shadow-lg hover:shadow-amber-400/25"
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.98 }}
               >
                 <span>Sprawdź Opinie Klientów</span>
                 <FiStar className="ml-3 w-5 h-5" />
-              </motion.button>
+              </motion.a>
             </div>
           </div>
         </motion.div>

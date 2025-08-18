@@ -19,8 +19,8 @@ const contactInfo = {
   email: "biuro@roletmix.pl",
   address: "Kłyż 89, 33-250 Otfinów, woj. małopolskie",
   hours: {
-    weekdays: "Poniedziałek - Piątek: 8:00 - 20:00",
-    saturday: "Sobota: 8:00 - 16:00",
+    weekdays: "Poniedziałek - Piątek: 8:00 - 17:00",
+    saturday: "Sobota: Zamknięte",
     sunday: "Niedziela: Zamknięte"
   }
 };
