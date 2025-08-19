@@ -93,6 +93,8 @@ const ContactSection = () => {
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [errorMessage, setErrorMessage] = useState('');
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -100,25 +102,50 @@ const ContactSection = () => {
       ...prev,
       [name]: value
     }));
+    
+    // Reset status when user starts typing
+    if (submitStatus !== 'idle') {
+      setSubmitStatus('idle');
+      setErrorMessage('');
+    }
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setSubmitStatus('idle');
+    setErrorMessage('');
     
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 2000));
-    
-    // Reset form
-    setFormData({
-      name: "",
-      phone: "",
-      postalCode: "",
-      message: ""
-    });
-    
-    setIsSubmitting(false);
-    alert("Dziękujemy za wiadomość! Skontaktujemy się z Tobą wkrótce.");
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        setSubmitStatus('success');
+        setFormData({
+          name: "",
+          phone: "",
+          postalCode: "",
+          message: ""
+        });
+      } else {
+        setSubmitStatus('error');
+        setErrorMessage(result.error || 'Wystąpił błąd podczas wysyłania wiadomości');
+      }
+    } catch (error) {
+      console.error('Błąd wysyłania formularza:', error);
+      setSubmitStatus('error');
+      setErrorMessage('Wystąpił błąd połączenia. Sprawdź połączenie internetowe i spróbuj ponownie.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -287,18 +314,79 @@ const ContactSection = () => {
                 </div>
                 </div>
 
+                {/* Status Messages */}
+                {submitStatus === 'success' && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    className="p-4 bg-green-500/20 border border-green-500/30 rounded-xl text-green-400 text-sm"
+                  >
+                    <div className="flex items-center">
+                      <div className="w-5 h-5 rounded-full bg-green-500 flex items-center justify-center mr-3">
+                        <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
+                          <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                        </svg>
+                      </div>
+                      <div>
+                        <p className="font-semibold">Wiadomość została wysłana!</p>
+                        <p className="text-green-300">Skontaktujemy się z Tobą w ciągu 24 godzin.</p>
+                      </div>
+                    </div>
+                  </motion.div>
+                )}
+
+                {submitStatus === 'error' && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    className="p-4 bg-red-500/20 border border-red-500/30 rounded-xl text-red-400 text-sm"
+                  >
+                    <div className="flex items-center">
+                      <div className="w-5 h-5 rounded-full bg-red-500 flex items-center justify-center mr-3">
+                        <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
+                          <path fillRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd" />
+                        </svg>
+                      </div>
+                      <div>
+                        <p className="font-semibold">Błąd wysyłania</p>
+                        <p className="text-red-300">{errorMessage}</p>
+                      </div>
+                    </div>
+                  </motion.div>
+                )}
+
                 {/* Submit Button */}
                 <motion.button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full bg-gradient-to-r from-amber-400 to-amber-500 text-black font-semibold py-4 px-6 rounded-xl hover:from-amber-500 hover:to-amber-600 transition-all duration-300 shadow-lg hover:shadow-amber-400/25 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center"
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
+                  className={`w-full font-semibold py-4 px-6 rounded-xl transition-all duration-300 shadow-lg disabled:cursor-not-allowed flex items-center justify-center ${
+                    submitStatus === 'success' 
+                      ? 'bg-green-500 hover:bg-green-600 text-white'
+                      : submitStatus === 'error'
+                      ? 'bg-red-500 hover:bg-red-600 text-white'
+                      : 'bg-gradient-to-r from-amber-400 to-amber-500 text-black hover:from-amber-500 hover:to-amber-600 hover:shadow-amber-400/25'
+                  } ${isSubmitting ? 'opacity-70' : ''}`}
+                  whileHover={{ scale: isSubmitting ? 1 : 1.02 }}
+                  whileTap={{ scale: isSubmitting ? 1 : 0.98 }}
                 >
                   {isSubmitting ? (
                     <div className="flex items-center">
                       <div className="w-5 h-5 border-2 border-black/30 border-t-black rounded-full animate-spin mr-3"></div>
                       Wysyłanie...
+                    </div>
+                  ) : submitStatus === 'success' ? (
+                    <div className="flex items-center">
+                      <svg className="w-5 h-5 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                      </svg>
+                      Wysłano pomyślnie
+                    </div>
+                  ) : submitStatus === 'error' ? (
+                    <div className="flex items-center">
+                      <svg className="w-5 h-5 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
+                      </svg>
+                      Spróbuj ponownie
                     </div>
                   ) : (
                     <div className="flex items-center">
