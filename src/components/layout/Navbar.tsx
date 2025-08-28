@@ -10,7 +10,7 @@ const Navbar = () => {
   return (
     <>
       <MenuTrigger isOpen={isOpen} setIsOpen={setIsOpen} />
-      <FullscreenMenu isOpen={isOpen} />
+      <FullscreenMenu isOpen={isOpen} setIsOpen={setIsOpen} />
     </>
   );
 };

@@ -5,6 +5,7 @@ import { motion, AnimatePresence, Variants } from "framer-motion";
 
 interface FullscreenMenuProps {
   isOpen: boolean;
+  setIsOpen: (isOpen: boolean) => void;
 }
 
 const menuLinks = [
@@ -15,7 +16,21 @@ const menuLinks = [
   { href: "#contact", label: "Kontakt" },
 ];
 
-const FullscreenMenu = ({ isOpen }: FullscreenMenuProps) => {
+const FullscreenMenu = ({ isOpen, setIsOpen }: FullscreenMenuProps) => {
+  const handleLinkClick = (href: string) => {
+    // Zamknij menu
+    setIsOpen(false);
+    
+    // Płynne przewijanie do sekcji
+    const element = document.querySelector(href);
+    if (element) {
+      element.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }
+  };
+
   const containerVariants: Variants = {
     hidden: {
       opacity: 0,
@@ -105,22 +120,22 @@ const FullscreenMenu = ({ isOpen }: FullscreenMenuProps) => {
           <nav className="flex flex-col items-center space-y-8 px-6 py-12">
             {menuLinks.map((link, index) => (
               <motion.div key={link.href} variants={linkVariants} custom={index}>
-                <Link
-                  href={link.href}
+                <button
+                  onClick={() => handleLinkClick(link.href)}
                   className="text-3xl font-semibold text-foreground hover:text-primary transition-colors tracking-wide"
                 >
                   {link.label}
-                </Link>
+                </button>
               </motion.div>
             ))}
             <motion.div variants={ctaVariants} className="mt-8 pt-8">
-              <Link
-                href="/wycena"
+              <button
+                onClick={() => handleLinkClick("#contact")}
                 className="relative bg-amber-400 text-black px-6 py-3 rounded-full text-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-amber-400/25 overflow-hidden group tracking-wide"
               >
                 <span className="relative z-10">Bezpłatna wycena</span>
                 <div className="absolute inset-0 bg-gradient-to-r from-amber-400 to-amber-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-full" />
-              </Link>
+              </button>
             </motion.div>
           </nav>
         </motion.div>

@@ -20,6 +20,17 @@ const Navbar = () => {
   const [isNavbarVisible, setIsNavbarVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
 
+  const handleLinkClick = (href: string) => {
+    // Płynne przewijanie do sekcji
+    const element = document.querySelector(href);
+    if (element) {
+      element.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }
+  };
+
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
@@ -90,13 +101,13 @@ const Navbar = () => {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.1 * (index + 1), duration: 0.3 }}
                 >
-                  <Link 
-                    href={link.href} 
+                  <button 
+                    onClick={() => handleLinkClick(link.href)}
                     className="text-xs lg:text-sm xl:text-base font-semibold text-foreground/90 hover:text-primary transition-all duration-300 relative group px-1.5 lg:px-2 xl:px-3 py-1 rounded-md hover:bg-primary/10 whitespace-nowrap tracking-wide"
                   >
                     {link.label}
                     <span className="absolute -bottom-1 left-2 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-[calc(100%-1rem)]" />
-                  </Link>
+                  </button>
                 </motion.div>
               ))}
             </div>
@@ -110,13 +121,13 @@ const Navbar = () => {
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.8, duration: 0.3 }}
             >
-              <Link
-                href="#contact"
+              <button
+                onClick={() => handleLinkClick("#contact")}
                 className="relative bg-amber-400 text-black px-3 lg:px-4 xl:px-5 py-2 lg:py-2.5 xl:py-3 rounded-full text-xs lg:text-sm xl:text-base font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-amber-400/25 overflow-hidden group tracking-wide whitespace-nowrap"
               >
                 <span className="relative z-10">Bezpłatna wycena</span>
                 <div className="absolute inset-0 bg-gradient-to-r from-amber-400 to-amber-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-full" />
-              </Link>
+              </button>
             </motion.div>
           </div>
         </motion.div>
@@ -144,7 +155,7 @@ const Navbar = () => {
         )}
         
         <MenuTrigger isOpen={isOpen} setIsOpen={setIsOpen} />
-        <FullscreenMenu isOpen={isOpen} />
+        <FullscreenMenu isOpen={isOpen} setIsOpen={setIsOpen} />
       </div>
     </>
   );

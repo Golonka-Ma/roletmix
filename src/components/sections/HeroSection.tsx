@@ -83,8 +83,8 @@ const HeroSection = () => {
             Uzyskaj Bezpłatną Wycenę
           </a>
           <a
-            href="#realizacje"
-                          className="flex items-center justify-center w-full px-8 py-4 text-base font-semibold text-white transition-all duration-300 transform bg-transparent border-2 border-white rounded-full sm:w-auto hover:bg-white hover:text-black group"
+            href="#portfolio"
+            className="flex items-center justify-center w-full px-8 py-4 text-base font-semibold text-white transition-all duration-300 transform bg-transparent border-2 border-white rounded-full sm:w-auto hover:bg-white hover:text-black group"
           >
             Zobacz Nasze Realizacje
             <FiArrowRight className="ml-2 transition-transform duration-300 group-hover:translate-x-1" />
