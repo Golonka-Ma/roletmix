@@ -45,7 +45,6 @@ const HeroSection = () => {
         autoPlay
         muted
         playsInline
-        poster="/images/hero-background.jpg"
         onEnded={handleEnded}
       />
       {/* Overlay dla lepszej czytelności tekstu */}

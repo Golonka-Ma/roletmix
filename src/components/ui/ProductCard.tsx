@@ -127,6 +127,9 @@ const ProductCard = ({
               className="flex items-center justify-center w-10 h-10 bg-gradient-to-r from-amber-400/20 to-amber-500/20 rounded-full border border-amber-400/30 group-hover:from-amber-400 group-hover:to-amber-500 group-hover:border-transparent transition-all duration-300"
               whileHover={{ scale: 1.1, rotate: 45 }}
               whileTap={{ scale: 0.95 }}
+              role="button"
+              aria-label="Zobacz szczegóły produktu"
+              title="Kliknij aby zobaczyć szczegóły"
             >
               <FiArrowRight className="w-4 h-4 text-amber-600 group-hover:text-white transition-colors duration-300" />
             </motion.div>

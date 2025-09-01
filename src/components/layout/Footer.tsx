@@ -165,6 +165,8 @@ const Footer = () => {
                       href={social.href}
                       target="_blank"
                       rel="noopener noreferrer"
+                      aria-label={`Przejdź do naszego profilu na ${social.label}`}
+                      title={`${social.label} - Rolet-Mix`}
                       className={cn(
                         "flex items-center justify-center w-10 h-10 bg-white/10 rounded-full transition-all duration-300",
                         social.color,
@@ -306,6 +308,8 @@ const Footer = () => {
                 {/* Scroll to Top */}
                 <motion.button
                   onClick={scrollToTop}
+                  aria-label="Przewiń do góry strony"
+                  title="Przewiń do góry"
                   className="flex items-center justify-center w-10 h-10 bg-amber-400/20 hover:bg-amber-400/30 rounded-full transition-all duration-300 group"
                   whileHover={{ scale: 1.1, y: -2 }}
                   whileTap={{ scale: 0.95 }}

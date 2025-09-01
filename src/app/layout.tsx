@@ -17,10 +17,13 @@ export const metadata: Metadata = {
   authors: [{ name: "Rolet-Mix" }],
   creator: "Rolet-Mix",
   publisher: "Rolet-Mix",
+  alternates: {
+    canonical: "https://www.roletmix.pl",
+  },
   openGraph: {
     title: "Rolet-Mix - Innowacyjne Systemy Osłonowe",
     description: "Projektujemy, produkujemy i montujemy najwyższej jakości rolety i żaluzje.",
-    url: "https://roletmix.pl",
+    url: "https://www.roletmix.pl",
     siteName: "Rolet-Mix",
     locale: "pl_PL",
     type: "website",

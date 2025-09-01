@@ -404,7 +404,7 @@ const PortfolioSection = () => {
                 {/* Hidden schema.org metadata */}
                 <meta itemProp="itemReviewed" itemScope itemType="https://schema.org/LocalBusiness" content="Rolet Mix - Rolety i Żaluzje" />
                 <meta itemProp="name" content="Rolet Mix" />
-                <meta itemProp="url" content="https://roletmix.pl" />
+                <meta itemProp="url" content="https://www.roletmix.pl" />
                 
                 {/* Bottom border accent */}
                 <div className="absolute bottom-0 left-6 right-6 h-1 bg-gradient-to-r from-primary/20 via-secondary/20 to-primary/20 rounded-full transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
