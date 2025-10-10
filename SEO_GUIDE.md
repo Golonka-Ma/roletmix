@@ -223,6 +223,11 @@ Wszystkie dane zostały już zaktualizowane w `src/lib/structuredData.ts`:
 4. ✅ **Dodano przekierowanie /oferta → /**
    - 301 Permanent Redirect dla SEO
 
+5. ✅ **Naprawiono Product Schema w hasOfferCatalog**
+   - Dodano pełne dane "offers" do każdego produktu
+   - Naprawiono błędy: "Either offers, review, or aggregateRating should be specified"
+   - Wszystkie 3 produkty (Rolety, Żaluzje, Moskitiery) są teraz valid
+
 ## ✨ Gotowe do weryfikacji
 
 Wszystkie pliki SEO są już skonfigurowane:

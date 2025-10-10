@@ -77,7 +77,16 @@ export const localBusinessSchema = {
         "itemOffered": {
           "@type": "Product",
           "name": "Rolety zewnętrzne na wymiar",
-          "description": "Profesjonalne rolety zewnętrzne produkowane na wymiar dla Żabna i Dąbrowy Tarnowskiej"
+          "description": "Profesjonalne rolety zewnętrzne produkowane na wymiar dla Żabna i Dąbrowy Tarnowskiej",
+          "offers": {
+            "@type": "Offer",
+            "priceCurrency": "PLN",
+            "availability": "https://schema.org/InStock",
+            "seller": {
+              "@type": "Organization",
+              "name": "Rolet-Mix"
+            }
+          }
         }
       },
       {
@@ -85,7 +94,16 @@ export const localBusinessSchema = {
         "itemOffered": {
           "@type": "Product",
           "name": "Żaluzje na wymiar",
-          "description": "Żaluzje poziome, pionowe, plisowane i dachowe na wymiar"
+          "description": "Żaluzje poziome, pionowe, plisowane i dachowe na wymiar",
+          "offers": {
+            "@type": "Offer",
+            "priceCurrency": "PLN",
+            "availability": "https://schema.org/InStock",
+            "seller": {
+              "@type": "Organization",
+              "name": "Rolet-Mix"
+            }
+          }
         }
       },
       {
@@ -93,7 +111,16 @@ export const localBusinessSchema = {
         "itemOffered": {
           "@type": "Product",
           "name": "Moskitiery",
-          "description": "Siatki przeciw owadom do okien i drzwi"
+          "description": "Siatki przeciw owadom do okien i drzwi",
+          "offers": {
+            "@type": "Offer",
+            "priceCurrency": "PLN",
+            "availability": "https://schema.org/InStock",
+            "seller": {
+              "@type": "Organization",
+              "name": "Rolet-Mix"
+            }
+          }
         }
       },
       {
