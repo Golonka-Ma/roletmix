@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { motion, AnimatePresence, Variants } from "framer-motion";
 
 interface FullscreenMenuProps {
@@ -109,10 +110,13 @@ const FullscreenMenu = ({ isOpen, setIsOpen }: FullscreenMenuProps) => {
             variants={linkVariants}
           >
             <Link href="/" className="flex items-center">
-              <img 
+              <Image 
                 src="/images/logo_navbar.svg" 
                 alt="Rolet-Mix" 
+                width={120}
+                height={48}
                 className="h-12 w-auto"
+                priority
               />
             </Link>
           </motion.div>

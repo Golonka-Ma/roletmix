@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import MenuTrigger from "@/components/ui/MenuTrigger";
@@ -82,10 +83,13 @@ const Navbar = () => {
             <div className="relative flex items-center space-x-3 lg:space-x-4 xl:space-x-6">
             {/* Logo */}
             <Link href="/" className="flex items-center">
-              <img 
+              <Image 
                 src="/images/logo_navbar.svg" 
                 alt="Rolet-Mix" 
+                width={100}
+                height={36}
                 className="h-7 lg:h-8 xl:h-9 w-auto"
+                priority
               />
             </Link>
             
@@ -145,10 +149,13 @@ const Navbar = () => {
             transition={{ duration: 0.3 }}
           >
             <Link href="/" className="flex items-center">
-              <img 
+              <Image 
                 src="/images/logo_navbar.svg" 
                 alt="Rolet-Mix" 
+                width={100}
+                height={32}
                 className="h-8 w-auto"
+                priority
               />
             </Link>
           </motion.div>
