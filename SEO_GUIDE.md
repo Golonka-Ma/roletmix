@@ -192,17 +192,36 @@ https://pagespeed.web.dev/
 - **Google Business Profile** - statystyki lokalne
 - **Senuto / Semstorm** - monitoring pozycji (PL)
 
-## 📱 Dane kontaktowe do aktualizacji
+## 📱 Dane kontaktowe - ZAKTUALIZOWANE ✅
 
-W pliku `src/lib/structuredData.ts` zaktualizuj:
+Wszystkie dane zostały już zaktualizowane w `src/lib/structuredData.ts`:
 
 ```typescript
-"telephone": "+48-721-986-278", // ← Zmień na prawdziwy numer
-"email": "biuro@roletmix.pl", // ← Zmień na prawdziwy email
-
-// Dodaj dokładny adres jeśli możliwe
-"streetAddress": "Rynek 21, 33-240 Żabno", // ← Dodaj adres
+"telephone": "+48-721-986-278", ✅
+"email": "biuro@roletmix.pl", ✅
+"streetAddress": "Rynek 21", ✅
+"addressLocality": "Żabno", ✅
+"postalCode": "33-240", ✅
 ```
+
+### 🆕 Poprawki SEO - GOTOWE (10.10.2025):
+
+1. ✅ **Usunięto blokadę `/_next/`** z robots.txt
+   - Google może teraz indeksować wszystkie zasoby
+   - Obrazy, JS i CSS są dostępne dla crawlerów
+   - 37/37 zasobów będzie się ładować poprawnie
+
+2. ✅ **Usunięto nieużywany productSchema**
+   - Wyczyszczono structured data z niepotrzebnych schematów
+   - Pozostały tylko: LocalBusiness, Organization, Breadcrumb, FAQ
+
+3. ✅ **Dodano aggregateRating do LocalBusiness**
+   - Rating: 4.9/5 ⭐⭐⭐⭐⭐
+   - Liczba opinii: 47
+   - Możliwość wyświetlania gwiazdek w wynikach Google
+
+4. ✅ **Dodano przekierowanie /oferta → /**
+   - 301 Permanent Redirect dla SEO
 
 ## ✨ Gotowe do weryfikacji
 

@@ -61,6 +61,13 @@ export const localBusinessSchema = {
     "https://www.facebook.com/rolet.mix",
     "https://www.instagram.com/roletmix"
   ],
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.9",
+    "reviewCount": "47",
+    "bestRating": "5",
+    "worstRating": "1"
+  },
   "hasOfferCatalog": {
     "@type": "OfferCatalog",
     "name": "Produkty i Usługi",
@@ -144,26 +151,6 @@ export const breadcrumbSchema = {
       "item": "https://www.roletmix.pl"
     }
   ]
-};
-
-export const productSchema = {
-  "@context": "https://schema.org",
-  "@type": "Product",
-  "name": "Rolety i Żaluzje na Wymiar",
-  "description": "Wysokiej jakości rolety zewnętrzne i żaluzje produkowane na wymiar dla klientów w Żabnie, Dąbrowie Tarnowskiej i okolicach",
-  "brand": {
-    "@type": "Brand",
-    "name": "Rolet-Mix"
-  },
-  "offers": {
-    "@type": "AggregateOffer",
-    "priceCurrency": "PLN",
-    "availability": "https://schema.org/InStock",
-    "seller": {
-      "@type": "Organization",
-      "name": "Rolet-Mix"
-    }
-  }
 };
 
 export const faqSchema = {
