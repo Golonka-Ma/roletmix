@@ -41,7 +41,7 @@ const HeroSection = () => {
       <video
         ref={videoRef}
         className="absolute inset-0 z-0 w-full h-full object-cover"
-        src="/videos/hero-background (light).mp4"
+        src="/videos/hero-background.mp4"
         autoPlay
         muted
         playsInline

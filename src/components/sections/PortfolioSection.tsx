@@ -248,7 +248,7 @@ const PortfolioSection = () => {
           variants={containerVariants}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
-          role="gallery"
+          role="list"
           aria-label="Galeria realizacji rolet"
         >
           {portfolioItems.map((item) => (
@@ -266,7 +266,7 @@ const PortfolioSection = () => {
                }`}
               itemScope
               itemType="https://schema.org/ImageObject"
-              role="img"
+              role="listitem"
               aria-label={item.alt}
             >
               <div className="relative w-full h-full">
@@ -361,10 +361,16 @@ const PortfolioSection = () => {
                     <div className="text-xl">👤</div>
                   </div>
                   <div className="flex-1 min-w-0">
+                    {/* Hidden author structured data */}
+                    <div itemProp="author" itemScope itemType="https://schema.org/Person" style={{ display: 'none' }}>
+                      <span itemProp="name">{testimonial.name}</span>
+                      <div itemProp="address" itemScope itemType="https://schema.org/PostalAddress">
+                        <span itemProp="name">{testimonial.location}</span>
+                      </div>
+                    </div>
+                    
                     <div className="flex items-center gap-2 mb-1">
-                      <h3 className="font-semibold text-gray-900 text-base" itemProp="author" itemScope itemType="https://schema.org/Person">
-                        <span itemProp="name">{testimonial.name}</span>
-                      </h3>
+                      <h3 className="font-semibold text-gray-900 text-base">{testimonial.name}</h3>
                       <div className="flex items-center gap-1" itemProp="reviewRating" itemScope itemType="https://schema.org/Rating">
                         <meta itemProp="ratingValue" content={testimonial.rating.toString()} />
                         <meta itemProp="bestRating" content="5" />
@@ -373,9 +379,7 @@ const PortfolioSection = () => {
                         ))}
                       </div>
                     </div>
-                    <p className="text-sm text-gray-600 mb-2" itemProp="author" itemScope itemType="https://schema.org/Person">
-                      <span itemProp="address">{testimonial.location}</span>
-                    </p>
+                    <p className="text-sm text-gray-600 mb-2">{testimonial.location}</p>
                     {/* Platform with logo */}
                     <div className="flex items-center gap-2">
                       {testimonial.platform === "Google" ? (
@@ -401,6 +405,9 @@ const PortfolioSection = () => {
                 <div itemProp="itemReviewed" itemScope itemType="https://schema.org/LocalBusiness" style={{ display: 'none' }}>
                   <span itemProp="name">Rolet Mix</span>
                   <link itemProp="url" href="https://www.roletmix.pl/" />
+                  <link itemProp="image" href="https://www.roletmix.pl/images/logo-light.svg" />
+                  <span itemProp="telephone">+48-721-986-278</span>
+                  <span itemProp="priceRange">$$</span>
                   <div itemProp="address" itemScope itemType="https://schema.org/PostalAddress">
                     <span itemProp="streetAddress">Rynek 21</span>
                     <span itemProp="addressLocality">Żabno</span>
@@ -487,9 +494,14 @@ const PortfolioSection = () => {
                           <div className="text-xl">👤</div>
                         </div>
                         <div className="flex-1 min-w-0">
+                          {/* Hidden author structured data */}
                           <div itemProp="author" itemScope itemType="https://schema.org/Person" style={{ display: 'none' }}>
                             <span itemProp="name">{testimonial.name}</span>
+                            <div itemProp="address" itemScope itemType="https://schema.org/PostalAddress">
+                              <span itemProp="name">{testimonial.location}</span>
+                            </div>
                           </div>
+                          
                           <div className="flex items-center gap-2 mb-1">
                             <h4 className="font-semibold text-gray-900 text-base">{testimonial.name}</h4>
                             <div className="flex items-center gap-1" itemProp="reviewRating" itemScope itemType="https://schema.org/Rating">
@@ -526,6 +538,9 @@ const PortfolioSection = () => {
                       <div itemProp="itemReviewed" itemScope itemType="https://schema.org/LocalBusiness" style={{ display: 'none' }}>
                         <span itemProp="name">Rolet Mix</span>
                         <link itemProp="url" href="https://www.roletmix.pl/" />
+                        <link itemProp="image" href="https://www.roletmix.pl/images/logo-light.svg" />
+                        <span itemProp="telephone">+48-721-986-278</span>
+                        <span itemProp="priceRange">$$</span>
                         <div itemProp="address" itemScope itemType="https://schema.org/PostalAddress">
                           <span itemProp="streetAddress">Rynek 21</span>
                           <span itemProp="addressLocality">Żabno</span>
