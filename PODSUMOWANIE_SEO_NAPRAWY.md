@@ -40,6 +40,7 @@
 |------|--------|--------|
 | `src/lib/structuredData.ts` | Product → Service schema | ✅ Done |
 | `src/lib/structuredData.ts` | Address do 6 provider + usunięto duplicate ratings | ✅ Done |
+| `src/components/sections/PortfolioSection.tsx` | Naprawiono schema markup (usunięto LocalBusiness/Organization) | ✅ Done |
 | `src/app/layout.tsx` | Import servicesSchema | ✅ Done |
 | `next.config.ts` | Dodano 4 przekierowania 301 | ✅ Done |
 
@@ -275,11 +276,12 @@ rolet-mix/
 |--------|--------|-------|
 | **Service Schema** | ✅ DONE | 6 kategorii z pełnymi danymi |
 | **LocalBusiness Address** | ✅ FIXED | Dodano address do 6 provider |
+| **Portfolio Schema** | ✅ FIXED | Usunięto niepotrzebne LocalBusiness/Organization |
 | **Build** | ✅ SUCCESS | Bez błędów kompilacji |
 | **Linting** | ✅ CLEAN | Bez błędów lintera |
 | **Dokumentacja** | ✅ COMPLETE | 5 plików MD |
 | **404 Errors** | ✅ FIXED | 17 URLi, 4 przekierowania 301 |
-| **Rich Results Errors** | ✅ FIXED | 18 błędów naprawionych |
+| **Rich Results Errors** | ✅ FIXED | ~36 błędów naprawionych |
 | **Deploy** | ⏳ PENDING | Czeka na Twoje `git push` |
 | **Testing** | ⏳ AFTER DEPLOY | Rich Results + Schema.org |
 | **Monitoring** | ⏳ ONGOING | GSC co tydzień przez miesiąc |

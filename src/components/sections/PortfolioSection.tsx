@@ -173,8 +173,6 @@ const PortfolioSection = () => {
       id="portfolio"
       ref={ref}
       className="relative w-full py-24 md:py-32 overflow-hidden bg-gradient-to-br from-slate-50 via-white to-blue-50/30"
-      itemScope
-      itemType="https://schema.org/LocalBusiness"
       aria-labelledby="portfolio-heading"
     >
       {/* Background elements */}
@@ -332,8 +330,6 @@ const PortfolioSection = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ duration: 0.8, delay: 0.8 }}
-          itemScope
-          itemType="https://schema.org/Organization"
         >
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
@@ -401,10 +397,11 @@ const PortfolioSection = () => {
                   <span className="text-primary text-2xl">&rdquo;</span>
                 </blockquote>
                 
-                {/* Hidden schema.org metadata */}
-                <meta itemProp="itemReviewed" itemScope itemType="https://schema.org/LocalBusiness" content="Rolet Mix - Rolety i Żaluzje" />
-                <meta itemProp="name" content="Rolet Mix" />
-                <meta itemProp="url" content="https://www.roletmix.pl" />
+                {/* itemReviewed - hidden structured data */}
+                <div itemProp="itemReviewed" itemScope itemType="https://schema.org/LocalBusiness" style={{ display: 'none' }}>
+                  <span itemProp="name">Rolet Mix</span>
+                  <link itemProp="url" href="https://www.roletmix.pl/" />
+                </div>
                 
                 {/* Bottom border accent */}
                 <div className="absolute bottom-0 left-6 right-6 h-1 bg-gradient-to-r from-primary/20 via-secondary/20 to-primary/20 rounded-full transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
@@ -483,9 +480,14 @@ const PortfolioSection = () => {
                           <div className="text-xl">👤</div>
                         </div>
                         <div className="flex-1 min-w-0">
+                          <div itemProp="author" itemScope itemType="https://schema.org/Person" style={{ display: 'none' }}>
+                            <span itemProp="name">{testimonial.name}</span>
+                          </div>
                           <div className="flex items-center gap-2 mb-1">
                             <h4 className="font-semibold text-gray-900 text-base">{testimonial.name}</h4>
-                            <div className="flex items-center gap-1">
+                            <div className="flex items-center gap-1" itemProp="reviewRating" itemScope itemType="https://schema.org/Rating">
+                              <meta itemProp="ratingValue" content={testimonial.rating.toString()} />
+                              <meta itemProp="bestRating" content="5" />
                               {[...Array(testimonial.rating)].map((_, i) => (
                                 <FiStar key={i} className="w-4 h-4 text-amber-400 fill-current" />
                               ))}
@@ -501,17 +503,23 @@ const PortfolioSection = () => {
                             )}
                             <span className="text-sm font-medium text-gray-700">{testimonial.platform}</span>
                             <span className="text-xs text-gray-500">•</span>
-                            <span className="text-xs text-gray-500">{testimonial.date}</span>
+                            <time className="text-xs text-gray-500" itemProp="datePublished">{testimonial.date}</time>
                           </div>
                         </div>
                       </div>
 
                       {/* Testimonial Text */}
-                      <blockquote className="relative text-gray-700 leading-relaxed text-sm italic">
+                      <blockquote className="relative text-gray-700 leading-relaxed text-sm italic" itemProp="reviewBody">
                         <span className="text-primary text-2xl absolute -top-2 -left-1">&ldquo;</span>
                         <span className="ml-4">{testimonial.text}</span>
                         <span className="text-primary text-2xl">&rdquo;</span>
                       </blockquote>
+                      
+                      {/* itemReviewed - hidden structured data */}
+                      <div itemProp="itemReviewed" itemScope itemType="https://schema.org/LocalBusiness" style={{ display: 'none' }}>
+                        <span itemProp="name">Rolet Mix</span>
+                        <link itemProp="url" href="https://www.roletmix.pl/" />
+                      </div>
                       
                       {/* Bottom border accent */}
                       <div className="absolute bottom-0 left-6 right-6 h-1 bg-gradient-to-r from-primary/20 via-secondary/20 to-primary/20 rounded-full"></div>
