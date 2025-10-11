@@ -220,7 +220,15 @@ export const servicesSchema = {
           "@type": "LocalBusiness",
           "name": "Rolet-Mix",
           "image": "https://www.roletmix.pl/images/logo-light.svg",
-          "telephone": "+48-721-986-278"
+          "telephone": "+48-721-986-278",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Rynek 21",
+            "addressLocality": "Żabno",
+            "addressRegion": "Małopolskie",
+            "postalCode": "33-240",
+            "addressCountry": "PL"
+          }
         },
         "image": [
           "https://www.roletmix.pl/images/textile-blinds.jpg",
@@ -247,13 +255,6 @@ export const servicesSchema = {
           "@type": "ServiceChannel",
           "serviceUrl": "https://www.roletmix.pl/#contact",
           "servicePhone": "+48-721-986-278"
-        },
-        "aggregateRating": {
-          "@type": "AggregateRating",
-          "ratingValue": "4.9",
-          "reviewCount": "28",
-          "bestRating": "5",
-          "worstRating": "1"
         }
       }
     },
@@ -269,7 +270,15 @@ export const servicesSchema = {
           "@type": "LocalBusiness",
           "name": "Rolet-Mix",
           "image": "https://www.roletmix.pl/images/logo-light.svg",
-          "telephone": "+48-721-986-278"
+          "telephone": "+48-721-986-278",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Rynek 21",
+            "addressLocality": "Żabno",
+            "addressRegion": "Małopolskie",
+            "postalCode": "33-240",
+            "addressCountry": "PL"
+          }
         },
         "image": [
           "https://www.roletmix.pl/images/external-shutters.jpg",
@@ -318,7 +327,15 @@ export const servicesSchema = {
           "@type": "LocalBusiness",
           "name": "Rolet-Mix",
           "image": "https://www.roletmix.pl/images/logo-light.svg",
-          "telephone": "+48-721-986-278"
+          "telephone": "+48-721-986-278",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Rynek 21",
+            "addressLocality": "Żabno",
+            "addressRegion": "Małopolskie",
+            "postalCode": "33-240",
+            "addressCountry": "PL"
+          }
         },
         "image": [
           "https://www.roletmix.pl/images/roof-blinds.jpg",
@@ -367,7 +384,15 @@ export const servicesSchema = {
           "@type": "LocalBusiness",
           "name": "Rolet-Mix",
           "image": "https://www.roletmix.pl/images/logo-light.svg",
-          "telephone": "+48-721-986-278"
+          "telephone": "+48-721-986-278",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Rynek 21",
+            "addressLocality": "Żabno",
+            "addressRegion": "Małopolskie",
+            "postalCode": "33-240",
+            "addressCountry": "PL"
+          }
         },
         "image": [
           "https://www.roletmix.pl/images/horizontal-blinds.jpg",
@@ -416,7 +441,15 @@ export const servicesSchema = {
           "@type": "LocalBusiness",
           "name": "Rolet-Mix",
           "image": "https://www.roletmix.pl/images/logo-light.svg",
-          "telephone": "+48-721-986-278"
+          "telephone": "+48-721-986-278",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Rynek 21",
+            "addressLocality": "Żabno",
+            "addressRegion": "Małopolskie",
+            "postalCode": "33-240",
+            "addressCountry": "PL"
+          }
         },
         "image": [
           "https://www.roletmix.pl/images/vertical-blinds.jpg",
@@ -465,7 +498,15 @@ export const servicesSchema = {
           "@type": "LocalBusiness",
           "name": "Rolet-Mix",
           "image": "https://www.roletmix.pl/images/logo-light.svg",
-          "telephone": "+48-721-986-278"
+          "telephone": "+48-721-986-278",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Rynek 21",
+            "addressLocality": "Żabno",
+            "addressRegion": "Małopolskie",
+            "postalCode": "33-240",
+            "addressCountry": "PL"
+          }
         },
         "image": [
           "https://www.roletmix.pl/images/mosquito-nets.jpg",

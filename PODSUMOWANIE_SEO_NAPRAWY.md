@@ -39,6 +39,7 @@
 | Plik | Zmiana | Status |
 |------|--------|--------|
 | `src/lib/structuredData.ts` | Product → Service schema | ✅ Done |
+| `src/lib/structuredData.ts` | Address do 6 provider + usunięto duplicate ratings | ✅ Done |
 | `src/app/layout.tsx` | Import servicesSchema | ✅ Done |
 | `next.config.ts` | Dodano 4 przekierowania 301 | ✅ Done |
 
@@ -47,9 +48,10 @@
 | Plik | Opis |
 |------|------|
 | `SEO_OPTYMALIZACJA_STRONAUSŁUGOWA.md` | Pełna dokumentacja Service schema |
-| `FIX_404_ERRORS.md` | Przewodnik naprawy błędów 404 (ogólny) |
 | `FIX_404_COMPLETED.md` | 17 błędów 404 naprawionych (szczegóły) |
+| `FIX_RICH_RESULTS_ERRORS.md` | 18 błędów Rich Results naprawionych |
 | `PODSUMOWANIE_SEO_NAPRAWY.md` | Ten plik - quick reference |
+| `SEO_GUIDE.md` | Główny przewodnik SEO (zaktualizowany) |
 
 ---
 
@@ -272,10 +274,12 @@ rolet-mix/
 | Obszar | Status | Uwagi |
 |--------|--------|-------|
 | **Service Schema** | ✅ DONE | 6 kategorii z pełnymi danymi |
+| **LocalBusiness Address** | ✅ FIXED | Dodano address do 6 provider |
 | **Build** | ✅ SUCCESS | Bez błędów kompilacji |
 | **Linting** | ✅ CLEAN | Bez błędów lintera |
-| **Dokumentacja** | ✅ COMPLETE | 4 pliki MD |
+| **Dokumentacja** | ✅ COMPLETE | 5 plików MD |
 | **404 Errors** | ✅ FIXED | 17 URLi, 4 przekierowania 301 |
+| **Rich Results Errors** | ✅ FIXED | 18 błędów naprawionych |
 | **Deploy** | ⏳ PENDING | Czeka na Twoje `git push` |
 | **Testing** | ⏳ AFTER DEPLOY | Rich Results + Schema.org |
 | **Monitoring** | ⏳ ONGOING | GSC co tydzień przez miesiąc |
