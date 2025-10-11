@@ -401,6 +401,13 @@ const PortfolioSection = () => {
                 <div itemProp="itemReviewed" itemScope itemType="https://schema.org/LocalBusiness" style={{ display: 'none' }}>
                   <span itemProp="name">Rolet Mix</span>
                   <link itemProp="url" href="https://www.roletmix.pl/" />
+                  <div itemProp="address" itemScope itemType="https://schema.org/PostalAddress">
+                    <span itemProp="streetAddress">Rynek 21</span>
+                    <span itemProp="addressLocality">Żabno</span>
+                    <span itemProp="addressRegion">Małopolskie</span>
+                    <span itemProp="postalCode">33-240</span>
+                    <span itemProp="addressCountry">PL</span>
+                  </div>
                 </div>
                 
                 {/* Bottom border accent */}
@@ -519,6 +526,13 @@ const PortfolioSection = () => {
                       <div itemProp="itemReviewed" itemScope itemType="https://schema.org/LocalBusiness" style={{ display: 'none' }}>
                         <span itemProp="name">Rolet Mix</span>
                         <link itemProp="url" href="https://www.roletmix.pl/" />
+                        <div itemProp="address" itemScope itemType="https://schema.org/PostalAddress">
+                          <span itemProp="streetAddress">Rynek 21</span>
+                          <span itemProp="addressLocality">Żabno</span>
+                          <span itemProp="addressRegion">Małopolskie</span>
+                          <span itemProp="postalCode">33-240</span>
+                          <span itemProp="addressCountry">PL</span>
+                        </div>
                       </div>
                       
                       {/* Bottom border accent */}

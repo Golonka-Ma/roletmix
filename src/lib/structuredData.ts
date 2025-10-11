@@ -305,13 +305,6 @@ export const servicesSchema = {
           "@type": "ServiceChannel",
           "serviceUrl": "https://www.roletmix.pl/#contact",
           "servicePhone": "+48-721-986-278"
-        },
-        "aggregateRating": {
-          "@type": "AggregateRating",
-          "ratingValue": "4.9",
-          "reviewCount": "35",
-          "bestRating": "5",
-          "worstRating": "1"
         }
       }
     },
@@ -362,13 +355,6 @@ export const servicesSchema = {
           "@type": "ServiceChannel",
           "serviceUrl": "https://www.roletmix.pl/#contact",
           "servicePhone": "+48-721-986-278"
-        },
-        "aggregateRating": {
-          "@type": "AggregateRating",
-          "ratingValue": "4.8",
-          "reviewCount": "22",
-          "bestRating": "5",
-          "worstRating": "1"
         }
       }
     },
@@ -419,13 +405,6 @@ export const servicesSchema = {
           "@type": "ServiceChannel",
           "serviceUrl": "https://www.roletmix.pl/#contact",
           "servicePhone": "+48-721-986-278"
-        },
-        "aggregateRating": {
-          "@type": "AggregateRating",
-          "ratingValue": "4.9",
-          "reviewCount": "31",
-          "bestRating": "5",
-          "worstRating": "1"
         }
       }
     },
@@ -476,13 +455,6 @@ export const servicesSchema = {
           "@type": "ServiceChannel",
           "serviceUrl": "https://www.roletmix.pl/#contact",
           "servicePhone": "+48-721-986-278"
-        },
-        "aggregateRating": {
-          "@type": "AggregateRating",
-          "ratingValue": "4.8",
-          "reviewCount": "26",
-          "bestRating": "5",
-          "worstRating": "1"
         }
       }
     },
@@ -533,13 +505,6 @@ export const servicesSchema = {
           "@type": "ServiceChannel",
           "serviceUrl": "https://www.roletmix.pl/#contact",
           "servicePhone": "+48-721-986-278"
-        },
-        "aggregateRating": {
-          "@type": "AggregateRating",
-          "ratingValue": "4.9",
-          "reviewCount": "42",
-          "bestRating": "5",
-          "worstRating": "1"
         }
       }
     }
