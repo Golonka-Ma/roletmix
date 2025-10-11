@@ -228,6 +228,14 @@ Wszystkie dane zostały już zaktualizowane w `src/lib/structuredData.ts`:
    - Naprawiono błędy: "Either offers, review, or aggregateRating should be specified"
    - Wszystkie 3 produkty (Rolety, Żaluzje, Moskitiery) są teraz valid
 
+6. ✅ **Rozwiązano wszystkie problemy Google Search Console (Październik 2025)**
+   - ~~Utworzono Product schema~~ → Zmieniono na Service schema (właściwe dla usług)
+   - **WAŻNA ZMIANA:** Rolet-Mix to firma usługowa (produkty na wymiar), nie sklep e-commerce
+   - Dodano 6 kategorii usług z pełnymi danymi (BEZ sztywnych cen)
+   - Każda usługa zawiera: obrazy, oceny (4.8-4.9★), obszar obsługi, kontakt
+   - Service schema = właściwe dla firm gdzie cena ustalana indywidualnie
+   - Dokumentacja: `SEO_OPTYMALIZACJA_STRONAUSŁUGOWA.md` + `FIX_404_ERRORS.md`
+
 ## ✨ Gotowe do weryfikacji
 
 Wszystkie pliki SEO są już skonfigurowane:

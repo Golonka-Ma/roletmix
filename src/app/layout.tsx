@@ -4,7 +4,7 @@ import "./globals.css";
 import { cn } from "@/lib/utils";
 
 import Footer from "@/components/layout/Footer";
-import { localBusinessSchema, organizationSchema, breadcrumbSchema, faqSchema } from "@/lib/structuredData";
+import { localBusinessSchema, organizationSchema, breadcrumbSchema, faqSchema, servicesSchema } from "@/lib/structuredData";
 
 const figtree = Figtree({
   weight: ["300", "400", "500", "700"],
@@ -138,6 +138,13 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify(faqSchema)
+          }}
+        />
+        {/* Structured Data - Services Schema */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(servicesSchema)
           }}
         />
       </head>

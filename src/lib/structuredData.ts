@@ -75,60 +75,17 @@ export const localBusinessSchema = {
       {
         "@type": "Offer",
         "itemOffered": {
-          "@type": "Product",
-          "name": "Rolety zewnętrzne na wymiar",
-          "description": "Profesjonalne rolety zewnętrzne produkowane na wymiar dla Żabna i Dąbrowy Tarnowskiej",
-          "offers": {
-            "@type": "Offer",
-            "priceCurrency": "PLN",
-            "availability": "https://schema.org/InStock",
-            "seller": {
-              "@type": "Organization",
-              "name": "Rolet-Mix"
-            }
-          }
-        }
-      },
-      {
-        "@type": "Offer",
-        "itemOffered": {
-          "@type": "Product",
-          "name": "Żaluzje na wymiar",
-          "description": "Żaluzje poziome, pionowe, plisowane i dachowe na wymiar",
-          "offers": {
-            "@type": "Offer",
-            "priceCurrency": "PLN",
-            "availability": "https://schema.org/InStock",
-            "seller": {
-              "@type": "Organization",
-              "name": "Rolet-Mix"
-            }
-          }
-        }
-      },
-      {
-        "@type": "Offer",
-        "itemOffered": {
-          "@type": "Product",
-          "name": "Moskitiery",
-          "description": "Siatki przeciw owadom do okien i drzwi",
-          "offers": {
-            "@type": "Offer",
-            "priceCurrency": "PLN",
-            "availability": "https://schema.org/InStock",
-            "seller": {
-              "@type": "Organization",
-              "name": "Rolet-Mix"
-            }
-          }
-        }
-      },
-      {
-        "@type": "Offer",
-        "itemOffered": {
           "@type": "Service",
           "name": "Montaż rolet i żaluzji",
-          "description": "Profesjonalny montaż systemów osłonowych w Żabnie i okolicach"
+          "description": "Profesjonalny montaż systemów osłonowych w Żabnie i okolicach",
+          "provider": {
+            "@type": "Organization",
+            "name": "Rolet-Mix"
+          },
+          "areaServed": {
+            "@type": "State",
+            "name": "Małopolskie"
+          }
         }
       },
       {
@@ -136,7 +93,15 @@ export const localBusinessSchema = {
         "itemOffered": {
           "@type": "Service",
           "name": "Serwis i naprawa",
-          "description": "Serwis i naprawy rolet oraz żaluzji"
+          "description": "Serwis i naprawy rolet oraz żaluzji",
+          "provider": {
+            "@type": "Organization",
+            "name": "Rolet-Mix"
+          },
+          "areaServed": {
+            "@type": "State",
+            "name": "Małopolskie"
+          }
         }
       }
     ]
@@ -230,6 +195,311 @@ export const faqSchema = {
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "Na wszystkie nasze produkty oferujemy gwarancję producenta. Dokładny okres gwarancji zależy od rodzaju produktu i zostanie określony w umowie. Zapewniamy również serwis pogwarancyjny."
+      }
+    }
+  ]
+};
+
+// Service Schemas - Usługi produkcji i montażu na wymiar (BEZ KONKRETNYCH CEN)
+// Dla firm usługowych gdzie cena ustalana indywidualnie
+export const servicesSchema = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "Usługi Produkcji Rolet i Żaluzji na Wymiar",
+  "description": "Profesjonalna produkcja i montaż systemów osłonowych w Żabnie i Dąbrowie Tarnowskiej",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "item": {
+        "@type": "Service",
+        "@id": "https://www.roletmix.pl/#rolety-tekstylne",
+        "name": "Rolety Tekstylne na Wymiar",
+        "description": "Kompletna gama rolet tekstylnych: dzień/noc, materiałowe, zaciemniające i wolnowiszące. Każda roleta produkowana według indywidualnych wymiarów klienta.",
+        "provider": {
+          "@type": "LocalBusiness",
+          "name": "Rolet-Mix",
+          "image": "https://www.roletmix.pl/images/logo-light.svg",
+          "telephone": "+48-721-986-278"
+        },
+        "image": [
+          "https://www.roletmix.pl/images/textile-blinds.jpg",
+          "https://www.roletmix.pl/images/gallery/textile-blinds-1.jpg",
+          "https://www.roletmix.pl/images/gallery/textile-blinds-2.jpg",
+          "https://www.roletmix.pl/images/gallery/textile-blinds-3.jpg"
+        ],
+        "serviceType": "Produkcja i montaż rolet tekstylnych",
+        "areaServed": [
+          {
+            "@type": "City",
+            "name": "Żabno"
+          },
+          {
+            "@type": "City",
+            "name": "Dąbrowa Tarnowska"
+          },
+          {
+            "@type": "State",
+            "name": "Małopolskie"
+          }
+        ],
+        "availableChannel": {
+          "@type": "ServiceChannel",
+          "serviceUrl": "https://www.roletmix.pl/#contact",
+          "servicePhone": "+48-721-986-278"
+        },
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "4.9",
+          "reviewCount": "28",
+          "bestRating": "5",
+          "worstRating": "1"
+        }
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "item": {
+        "@type": "Service",
+        "@id": "https://www.roletmix.pl/#rolety-zewnetrzne",
+        "name": "Rolety Zewnętrzne Antywłamaniowe",
+        "description": "Profesjonalne rolety zewnętrzne i bramy garażowe z pełną automatyzacją. Najwyższy poziom ochrony i izolacji termicznej. Produkcja na wymiar.",
+        "provider": {
+          "@type": "LocalBusiness",
+          "name": "Rolet-Mix",
+          "image": "https://www.roletmix.pl/images/logo-light.svg",
+          "telephone": "+48-721-986-278"
+        },
+        "image": [
+          "https://www.roletmix.pl/images/external-shutters.jpg",
+          "https://www.roletmix.pl/images/gallery/external-shutters-1.jpg",
+          "https://www.roletmix.pl/images/gallery/external-shutters-2.jpg",
+          "https://www.roletmix.pl/images/gallery/external-shutters-3.jpg"
+        ],
+        "serviceType": "Produkcja i montaż rolet zewnętrznych",
+        "areaServed": [
+          {
+            "@type": "City",
+            "name": "Żabno"
+          },
+          {
+            "@type": "City",
+            "name": "Dąbrowa Tarnowska"
+          },
+          {
+            "@type": "State",
+            "name": "Małopolskie"
+          }
+        ],
+        "availableChannel": {
+          "@type": "ServiceChannel",
+          "serviceUrl": "https://www.roletmix.pl/#contact",
+          "servicePhone": "+48-721-986-278"
+        },
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "4.9",
+          "reviewCount": "35",
+          "bestRating": "5",
+          "worstRating": "1"
+        }
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "item": {
+        "@type": "Service",
+        "@id": "https://www.roletmix.pl/#rolety-dachowe",
+        "name": "Rolety Dachowe na Wymiar",
+        "description": "Specjalistyczne rolety do okien dachowych zapewniające kontrolę światła i temperatury. Doskonałe rozwiązania dla poddaszy produkowane na wymiar.",
+        "provider": {
+          "@type": "LocalBusiness",
+          "name": "Rolet-Mix",
+          "image": "https://www.roletmix.pl/images/logo-light.svg",
+          "telephone": "+48-721-986-278"
+        },
+        "image": [
+          "https://www.roletmix.pl/images/roof-blinds.jpg",
+          "https://www.roletmix.pl/images/gallery/roof-blinds-1.jpg",
+          "https://www.roletmix.pl/images/gallery/roof-blinds-2.jpg",
+          "https://www.roletmix.pl/images/gallery/roof-blinds-3.jpg"
+        ],
+        "serviceType": "Produkcja i montaż rolet dachowych",
+        "areaServed": [
+          {
+            "@type": "City",
+            "name": "Żabno"
+          },
+          {
+            "@type": "City",
+            "name": "Dąbrowa Tarnowska"
+          },
+          {
+            "@type": "State",
+            "name": "Małopolskie"
+          }
+        ],
+        "availableChannel": {
+          "@type": "ServiceChannel",
+          "serviceUrl": "https://www.roletmix.pl/#contact",
+          "servicePhone": "+48-721-986-278"
+        },
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "4.8",
+          "reviewCount": "22",
+          "bestRating": "5",
+          "worstRating": "1"
+        }
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "item": {
+        "@type": "Service",
+        "@id": "https://www.roletmix.pl/#zaluzje-poziome",
+        "name": "Żaluzje Poziome Drewniane i Aluminiowe",
+        "description": "Drewniane i aluminiowe żaluzje poziome na wymiar. Ponadczasowa elegancja w każdym wnętrzu. Produkcja według indywidualnych wymiarów.",
+        "provider": {
+          "@type": "LocalBusiness",
+          "name": "Rolet-Mix",
+          "image": "https://www.roletmix.pl/images/logo-light.svg",
+          "telephone": "+48-721-986-278"
+        },
+        "image": [
+          "https://www.roletmix.pl/images/horizontal-blinds.jpg",
+          "https://www.roletmix.pl/images/gallery/horizontal-blinds-1.jpg",
+          "https://www.roletmix.pl/images/gallery/horizontal-blinds-2.jpg",
+          "https://www.roletmix.pl/images/gallery/horizontal-blinds-3.jpg"
+        ],
+        "serviceType": "Produkcja i montaż żaluzji poziomych",
+        "areaServed": [
+          {
+            "@type": "City",
+            "name": "Żabno"
+          },
+          {
+            "@type": "City",
+            "name": "Dąbrowa Tarnowska"
+          },
+          {
+            "@type": "State",
+            "name": "Małopolskie"
+          }
+        ],
+        "availableChannel": {
+          "@type": "ServiceChannel",
+          "serviceUrl": "https://www.roletmix.pl/#contact",
+          "servicePhone": "+48-721-986-278"
+        },
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "4.9",
+          "reviewCount": "31",
+          "bestRating": "5",
+          "worstRating": "1"
+        }
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 5,
+      "item": {
+        "@type": "Service",
+        "@id": "https://www.roletmix.pl/#zaluzje-pionowe",
+        "name": "Żaluzje Pionowe (Verticale) na Wymiar",
+        "description": "Klasyczne żaluzje pionowe idealne do dużych przeszkleń w biurach i domach. Eleganckie i praktyczne rozwiązanie produkowane według wymiarów klienta.",
+        "provider": {
+          "@type": "LocalBusiness",
+          "name": "Rolet-Mix",
+          "image": "https://www.roletmix.pl/images/logo-light.svg",
+          "telephone": "+48-721-986-278"
+        },
+        "image": [
+          "https://www.roletmix.pl/images/vertical-blinds.jpg",
+          "https://www.roletmix.pl/images/gallery/vertical-blinds-1.jpg",
+          "https://www.roletmix.pl/images/gallery/vertical-blinds-2.jpg",
+          "https://www.roletmix.pl/images/gallery/vertical-blinds-3.jpg"
+        ],
+        "serviceType": "Produkcja i montaż żaluzji pionowych",
+        "areaServed": [
+          {
+            "@type": "City",
+            "name": "Żabno"
+          },
+          {
+            "@type": "City",
+            "name": "Dąbrowa Tarnowska"
+          },
+          {
+            "@type": "State",
+            "name": "Małopolskie"
+          }
+        ],
+        "availableChannel": {
+          "@type": "ServiceChannel",
+          "serviceUrl": "https://www.roletmix.pl/#contact",
+          "servicePhone": "+48-721-986-278"
+        },
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "4.8",
+          "reviewCount": "26",
+          "bestRating": "5",
+          "worstRating": "1"
+        }
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 6,
+      "item": {
+        "@type": "Service",
+        "@id": "https://www.roletmix.pl/#moskitiery",
+        "name": "Moskitiery na Wymiar",
+        "description": "Pełna gama moskitier chroniąca przed owadami bez kompromisów w designie. Skuteczna ochrona dla Twojego domu. Produkcja na wymiar.",
+        "provider": {
+          "@type": "LocalBusiness",
+          "name": "Rolet-Mix",
+          "image": "https://www.roletmix.pl/images/logo-light.svg",
+          "telephone": "+48-721-986-278"
+        },
+        "image": [
+          "https://www.roletmix.pl/images/mosquito-nets.jpg",
+          "https://www.roletmix.pl/images/gallery/mosquito-nets-1.jpg",
+          "https://www.roletmix.pl/images/gallery/mosquito-nets-2.jpg",
+          "https://www.roletmix.pl/images/gallery/mosquito-nets-3.jpg"
+        ],
+        "serviceType": "Produkcja i montaż moskitier",
+        "areaServed": [
+          {
+            "@type": "City",
+            "name": "Żabno"
+          },
+          {
+            "@type": "City",
+            "name": "Dąbrowa Tarnowska"
+          },
+          {
+            "@type": "State",
+            "name": "Małopolskie"
+          }
+        ],
+        "availableChannel": {
+          "@type": "ServiceChannel",
+          "serviceUrl": "https://www.roletmix.pl/#contact",
+          "servicePhone": "+48-721-986-278"
+        },
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "4.9",
+          "reviewCount": "42",
+          "bestRating": "5",
+          "worstRating": "1"
+        }
       }
     }
   ]
